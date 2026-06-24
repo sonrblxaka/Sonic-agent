@@ -7,7 +7,7 @@ Connect GitHub, Jira, Slack and automate your workflow.
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Version](https://img.shields.io/badge/version-v1.0-orange)
 ![Status](https://img.shields.io/badge/status-active-green)
-https://github.com/sonrblxaka/Sonic-agent/issues
+
 ## 🚀 Features
 
 - GitHub Integration
