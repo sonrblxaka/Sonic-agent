@@ -21,3 +21,9 @@ Connect GitHub, Jira, Slack and automate your workflow.
 
 ```bash
 git clone https://github.com/username/sonic-agent.git
+
+🛣 Roadmap
+AI Code Review
+Multi-Agent Collaboration
+Autonomous Deployment
+Voice Interface
