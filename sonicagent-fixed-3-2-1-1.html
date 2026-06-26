@@ -1,0 +1,4424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── PRIMARY SEO ── -->
+  <title>Sonic Agent — Autonomous AI Agents for Your Engineering Workflow</title>
+  <meta name="description" content="Sonic Agent connects to GitHub, Jira, and Slack to run your CI pipeline, triage issues, and ship releases — autonomously. No credit card required to start." />
+  <meta name="keywords" content="AI agent, autonomous agent, AI automation, DevOps automation, CI/CD agent, GitHub automation, AI workflow, developer tools" />
+  <meta name="author" content="Sonic Agent" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sonicagent.ai/" />
+
+  <!-- ── OPEN GRAPH (Facebook, LinkedIn, Slack, Discord) ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sonicagent.ai/" />
+  <meta property="og:title" content="Sonic Agent — Autonomous AI Agents for Your Engineering Workflow" />
+  <meta property="og:description" content="Connect GitHub, Jira, and Slack and let Sonic Agent handle your CI pipeline, issue triage, and releases — automatically, around the clock." />
+  <meta property="og:image" content="https://sonicagent.ai/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Sonic Agent" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ── TWITTER / X CARD ── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sonic Agent — Autonomous AI Agents for Your Engineering Workflow" />
+  <meta name="twitter:description" content="Connect GitHub, Jira, and Slack and let Sonic Agent handle your CI pipeline, issue triage, and releases — automatically, around the clock." />
+  <meta name="twitter:image" content="https://sonicagent.ai/og-image.png" />
+
+  <!-- ── ICONS & THEME ── -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='36' x2='36' y2='0' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FF3C00'/%3E%3Cstop offset='100%25' stop-color='%23FF9500'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0' y1='0' x2='36' y2='36' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23FFD0A0' stop-opacity='0.9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='9' fill='%230a0a0a'/%3E%3Crect x='1' y='1' width='34' height='34' rx='8.5' fill='url(%23g)' opacity='0.15'/%3E%3Crect x='1' y='1' width='34' height='34' rx='8.5' fill='none' stroke='url(%23g)' stroke-width='1'/%3E%3Cpath d='M21.5 7 L11 19.5 L17.5 19.5 L14.5 29 L25 16.5 L18.5 16.5 Z' fill='url(%23g2)'/%3E%3Cpath d='M24 9.5 A11 11 0 0 1 26.5 18' stroke='rgba(255%2C149%2C0%2C0.5)' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#050505" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ── STRUCTURED DATA (JSON-LD) ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Sonic Agent",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "description": "Sonic Agent connects to GitHub, Jira, and Slack to run CI pipelines, triage issues, and ship releases autonomously.",
+    "url": "https://sonicagent.ai/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free Starter plan, no credit card required"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "3"
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #050505;
+      --fg: #fafafa;
+      --blue: #FF3C00;
+      --blue-light: #FF6633;
+      --blue-glow: rgba(255,60,0,0.35);
+      --violet: #FF8A00;
+      --muted: #a0a0a0;
+      --border: #1e1e1e;
+      --card: #0a0a0a;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-display);
+      letter-spacing: -0.02em;
+    }
+
+    /* ── LOGIN OVERLAY ── */
+    #login-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #060709;
+    }
+    #login-root { height: 100%; }
+
+    /* ── MAIN SITE (hidden until authed) ── */
+    #main-site { display: none; }
+    #main-site.visible { display: block; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+      background: rgba(5,5,5,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--fg);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .logo:hover { opacity: 0.85; }
+    .logo:hover svg { transform: scale(1.06); }
+    .logo svg { transition: transform 0.2s ease; }
+
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--blue);
+      border-radius: 20%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .logo-icon svg { width: 18px; height: 18px; fill: white; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--fg); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--blue);
+      color: var(--blue-light);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,60,0,0.1);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-light);
+      box-shadow: 0 0 20px var(--blue-glow);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 60%, rgba(255,60,0,0.12) 0%, transparent 70%),
+                  linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+    }
+
+    .hero-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      border: 1px solid rgba(255,60,0,0.4);
+      border-radius: 999px;
+      background: rgba(255,60,0,0.08);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--blue-light);
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      position: relative;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      max-width: 820px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 .accent {
+      background: linear-gradient(135deg, var(--blue-light), var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      position: relative;
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      position: relative;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-lg {
+      padding: 0.7rem 1.75rem;
+      font-size: 0.95rem;
+      border-radius: 8px;
+    }
+
+    .hero-stats {
+      position: relative;
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--fg);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-heading {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── FEATURES ── */
+    #features { border-top: 1px solid var(--border); }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .features-header .section-sub {
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .feature-card {
+      background: var(--card);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+
+    .feature-card:hover {
+      background: #0f0f0f;
+    }
+
+    .feature-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(255,60,0,0.1);
+      border: 1px solid rgba(255,60,0,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--blue-light);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-display);
+    }
+
+    .feature-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── HOW IT WORKS ── */
+    #how-it-works {
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,60,0,0.1);
+      border: 1px solid rgba(255,60,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--blue-light);
+    }
+
+    .step-content h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      font-family: var(--font-display);
+    }
+
+    .step-content p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .how-visual {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 4/3;
+      background: #08080f;
+    }
+
+    .how-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+    }
+
+    .how-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,60,0,0.15) 0%, transparent 60%);
+    }
+
+    /* ── PRICING ── */
+    #pricing {
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    #pricing .section-sub { margin: 0 auto 3.5rem; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .price-card {
+      background: var(--card);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .price-card.featured {
+      background: linear-gradient(160deg, #0a0f1e 0%, #060a14 100%);
+    }
+
+    .price-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-period {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .price-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-features li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .price-features li::before {
+      content: '';
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: rgba(255,60,0,0.2);
+      border: 1px solid rgba(255,60,0,0.4);
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23FF6633' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+
+    .featured-tag {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      background: rgba(255,60,0,0.15);
+      border: 1px solid rgba(255,60,0,0.3);
+      color: var(--blue-light);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── ROADMAP ── */
+    #roadmap { border-top: 1px solid var(--border); }
+
+    .roadmap-timeline {
+      position: relative;
+      margin-top: 3rem;
+      padding-left: 2.5rem;
+    }
+
+    .roadmap-timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .roadmap-item {
+      position: relative;
+      padding-bottom: 2.75rem;
+    }
+
+    .roadmap-item:last-child { padding-bottom: 0; }
+
+    .roadmap-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 4px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+    }
+
+    .roadmap-item.done .roadmap-dot {
+      background: var(--blue);
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(255,60,0,0.15);
+    }
+
+    .roadmap-item.progress .roadmap-dot {
+      border-color: var(--blue);
+    }
+
+    .roadmap-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .roadmap-quarter {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .roadmap-status {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .roadmap-status.shipped {
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.35);
+      color: #4ade80;
+    }
+
+    .roadmap-status.progress {
+      background: rgba(255,60,0,0.12);
+      border: 1px solid rgba(255,60,0,0.35);
+      color: var(--blue-light);
+    }
+
+    .roadmap-status.planned {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .roadmap-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .roadmap-list li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .roadmap-timeline { padding-left: 2rem; }
+      .roadmap-dot { left: -2rem; }
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      border-top: 1px solid var(--border);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(255,60,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      position: relative;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.8rem; color: var(--muted); }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--fg); }
+
+    /* ── NAV USER ── */
+    .nav-user {
+      font-size: 0.85rem;
+      color: var(--fg);
+      font-weight: 600;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #92400e, #d97706);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: #fde68a;
+      letter-spacing: 0;
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      left: auto;
+      max-width: 320px;
+      background: var(--card);
+      border: 1px solid var(--blue);
+      color: var(--fg);
+      padding: 0.9rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 400;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 480px) {
+      .toast { left: 1rem; right: 1rem; max-width: none; }
+    }
+
+    /* ── GITHUB CLONE PANEL ── */
+    .github-panel {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      width: 380px;
+      background: #0a0a0a;
+      border: 1px solid rgba(255,60,0,0.3);
+      border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,60,0,0.1);
+      z-index: 300;
+      overflow: hidden;
+      transform: translateY(calc(100% + 2rem));
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: none;
+    }
+    .github-panel.open {
+      transform: translateY(0);
+      opacity: 1;
+      display: block;
+    }
+    .github-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,60,0,0.05);
+    }
+    .github-panel-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .github-panel-close {
+      width: 24px; height: 24px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .github-panel-close:hover { background: rgba(255,60,0,0.15); color: var(--fg); }
+    .github-panel-body { padding: 16px; }
+    .gh-input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .gh-input {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 9px 12px;
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .gh-input:focus { border-color: rgba(255,60,0,0.5); }
+    .gh-input::placeholder { color: #444; }
+    .gh-btn-clone {
+      padding: 9px 16px;
+      border-radius: 8px;
+      background: var(--blue);
+      border: none;
+      color: white;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .gh-btn-clone:hover { background: var(--blue-light); box-shadow: 0 0 16px var(--blue-glow); }
+    .gh-btn-clone:disabled { opacity: 0.5; cursor: not-allowed; }
+    .gh-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .gh-option-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .gh-select {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 7px 10px;
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      outline: none;
+    }
+    .gh-log {
+      background: #060606;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.7;
+      max-height: 150px;
+      overflow-y: auto;
+      min-height: 60px;
+    }
+    .gh-log::-webkit-scrollbar { width: 4px; }
+    .gh-log::-webkit-scrollbar-track { background: transparent; }
+    .gh-log::-webkit-scrollbar-thumb { background: rgba(255,60,0,0.3); border-radius: 2px; }
+    .gh-log-line { display: flex; gap: 8px; }
+    .gh-log-line .ts { color: #333; flex-shrink: 0; }
+    .gh-log-line .msg-ok  { color: #4ade80; }
+    .gh-log-line .msg-err { color: #f87171; }
+    .gh-log-line .msg-info{ color: var(--blue-light); }
+    .gh-log-line .msg-dim { color: #555; }
+    .gh-progress {
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .gh-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      border-radius: 999px;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    .gh-result-card {
+      margin-top: 10px;
+      background: rgba(74,222,128,0.05);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: none;
+    }
+    .gh-result-card.show { display: block; }
+    .gh-result-name {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #4ade80;
+      margin-bottom: 4px;
+    }
+    .gh-result-meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #555;
+    }
+
+    /* FAB button to open github panel */
+    .github-fab {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: #0a0a0a;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 200;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .github-fab:hover { border-color: rgba(255,60,0,0.4); box-shadow: 0 4px 24px rgba(255,60,0,0.15); }
+    .github-fab svg { stroke: var(--blue-light); }
+    .github-fab.visible { display: flex; }
+
+    @media (max-width: 480px) {
+      .github-panel { left: 1rem; right: 1rem; width: auto; bottom: 1rem; }
+      .github-fab { left: 1rem; bottom: 1rem; }
+    }
+
+    /* ── HAMBURGER MENU ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--fg);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0; right: 0;
+      background: rgba(5,5,5,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--fg); }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { border-top: 1px solid var(--border); }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .testimonials-header .section-sub { margin: 0 auto; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .testimonial-card {
+      background: var(--card);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: background 0.2s;
+    }
+    .testimonial-card:hover { background: #0f0f0f; }
+
+    .testimonial-quote {
+      font-size: 0.9rem;
+      color: var(--fg);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .testimonial-quote::before {
+      content: '"';
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--blue);
+      line-height: 0;
+      vertical-align: -0.4em;
+      margin-right: 2px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--fg);
+      font-family: var(--font-display);
+    }
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 0.25rem;
+    }
+    .testimonial-stars span {
+      color: var(--violet);
+      font-size: 0.8rem;
+    }
+
+    /* ── FAQ ── */
+    #faq { border-top: 1px solid var(--border); }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .faq-header .section-sub { margin: 0 auto; }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--card);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: left;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: background 0.2s;
+    }
+    .faq-question:hover { background: #0f0f0f; }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      color: var(--blue-light);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 1.5rem;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 1.5rem 1.25rem;
+    }
+    .faq-answer p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      #how-it-works {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .how-visual { order: -1; }
+
+      .hero-stats { gap: 2rem; }
+    }
+
+    /* scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── SCROLL SPY active nav ── */
+    .nav-links a.active {
+      color: var(--fg);
+      position: relative;
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 1px;
+    }
+
+    /* ── TRUST LOGOS BAR ── */
+    .trust-bar {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      background: var(--card);
+    }
+    .trust-bar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+    .trust-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .trust-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.4;
+      filter: grayscale(1);
+      transition: opacity 0.3s, filter 0.3s;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--fg);
+    }
+    .trust-logo:hover { opacity: 0.7; filter: grayscale(0); }
+    .trust-logo svg { width: 20px; height: 20px; }
+
+    /* ── EMAIL CAPTURE ── */
+    .email-capture {
+      background: linear-gradient(135deg, rgba(255,60,0,0.06) 0%, rgba(255,138,0,0.04) 100%);
+      border: 1px solid rgba(255,60,0,0.2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 4rem auto 0;
+      max-width: 560px;
+    }
+    .email-capture h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .email-capture p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .email-form {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .email-form input {
+      flex: 1;
+      min-width: 220px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-form input:focus { border-color: rgba(255,60,0,0.5); }
+    .email-form input::placeholder { color: #555; }
+    .email-form-success {
+      display: none;
+      color: #4ade80;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .email-form-success.show { display: block; }
+
+    /* ── COMPARISON TABLE ── */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 3rem;
+      font-size: 0.875rem;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .comparison-table thead th {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: rgba(255,60,0,0.06);
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table thead th:first-child { color: var(--muted); font-weight: 500; }
+    .comparison-table thead th.highlight { color: var(--blue-light); }
+    .comparison-table tbody td {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--muted);
+    }
+    .comparison-table tbody tr:last-child td { border-bottom: none; }
+    .comparison-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+    .comparison-table tbody td:first-child { color: var(--fg); font-weight: 500; }
+    .comparison-table tbody td.highlight { background: rgba(255,60,0,0.03); }
+    .comp-yes { color: #4ade80; font-weight: 700; }
+    .comp-no  { color: #555; }
+    .comp-partial { color: #facc15; font-size: 0.8rem; }
+
+    /* ── LIVE CHAT WIDGET ── */
+    #chat-fab {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 52px; height: 52px;
+      background: var(--blue);
+      border: none;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      z-index: 200;
+      box-shadow: 0 4px 20px rgba(255,60,0,0.5);
+      transition: all 0.2s;
+    }
+    #chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(255,60,0,0.7); }
+    #chat-fab svg { width: 22px; height: 22px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; }
+    #chat-fab .chat-badge {
+      position: absolute;
+      top: -2px; right: -2px;
+      width: 14px; height: 14px;
+      background: #4ade80;
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+    }
+
+    #chat-panel {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 1.5rem;
+      width: 360px;
+      max-height: 500px;
+      background: #0a0a0a;
+      border: 1px solid rgba(255,60,0,0.3);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+      z-index: 300;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #chat-panel.open { display: flex; }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,60,0,0.05);
+      flex-shrink: 0;
+    }
+    .chat-header-info { display: flex; align-items: center; gap: 10px; }
+    .chat-avatar {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, #FF3C00, #FF8A00);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+    .chat-header-name { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; }
+    .chat-header-status { font-family: var(--font-mono); font-size: 0.7rem; color: #4ade80; }
+    .chat-close {
+      width: 24px; height: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .chat-close:hover { background: rgba(255,60,0,0.15); color: var(--fg); }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 200px;
+    }
+    .chat-messages::-webkit-scrollbar { width: 4px; }
+    .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,60,0,0.3); border-radius: 2px; }
+
+    .chat-msg {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .chat-msg.user { flex-direction: row-reverse; }
+    .chat-bubble {
+      max-width: 78%;
+      padding: 9px 13px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+    .chat-msg.agent .chat-bubble {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--fg);
+      border-bottom-left-radius: 4px;
+    }
+    .chat-msg.user .chat-bubble {
+      background: rgba(255,60,0,0.15);
+      border: 1px solid rgba(255,60,0,0.3);
+      color: var(--fg);
+      border-bottom-right-radius: 4px;
+    }
+    .chat-msg-avatar {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FF3C00, #FF8A00);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .chat-msg.user .chat-msg-avatar {
+      background: linear-gradient(135deg, #92400e, #d97706);
+      color: #fde68a;
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+    .chat-typing {
+      display: flex; gap: 4px; align-items: center;
+      padding: 10px 14px;
+    }
+    .chat-typing span {
+      width: 6px; height: 6px;
+      background: var(--muted);
+      border-radius: 50%;
+      animation: typingBounce 1.2s ease-in-out infinite;
+    }
+    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typingBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 8px;
+      padding: 12px 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-shrink: 0;
+    }
+    .chat-input {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 9px 12px;
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+    .chat-input:focus { border-color: rgba(255,60,0,0.5); }
+    .chat-input::placeholder { color: #444; }
+    .chat-send {
+      width: 36px; height: 36px;
+      background: var(--blue);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .chat-send:hover { background: var(--blue-light); box-shadow: 0 0 12px var(--blue-glow); }
+    .chat-send svg { width: 15px; height: 15px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .chat-suggestions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 0 16px 10px;
+    }
+    .chat-suggestion {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      background: rgba(255,60,0,0.08);
+      border: 1px solid rgba(255,60,0,0.2);
+      border-radius: 999px;
+      color: var(--blue-light);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-mono);
+    }
+    .chat-suggestion:hover { background: rgba(255,60,0,0.18); }
+    .chat-powered {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: #333;
+      padding: 6px;
+    }
+
+    @media (max-width: 480px) {
+      #chat-panel { left: 1rem; right: 1rem; width: auto; bottom: 5rem; }
+      #chat-fab { right: 1rem; bottom: 1rem; }
+    }
+
+    /* ── BACK TO TOP ── */
+    #back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 150;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: all 0.25s;
+      font-size: 16px;
+    }
+    #back-to-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #back-to-top:hover {
+      border-color: rgba(255,60,0,0.4);
+      color: var(--blue-light);
+    }
+
+    /* ── COPY COMMAND BUTTON ── */
+    .gh-copy-cmd {
+      margin-top: 8px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .gh-cmd-text {
+      flex: 1;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #888;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .gh-copy-btn {
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .gh-copy-btn:hover { background: rgba(255,60,0,0.1); border-color: rgba(255,60,0,0.3); color: var(--blue-light); }
+    .gh-copy-btn.copied { color: #4ade80; border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.05); }
+
+    /* ── ANIMATED STAT NUMBERS ── */
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--fg);
+      transition: color 0.2s;
+    }
+
+    /* ── SESSION BANNER (offline mode) ── */
+    .offline-banner {
+      background: rgba(255,138,0,0.1);
+      border-bottom: 1px solid rgba(255,138,0,0.25);
+      color: var(--violet);
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      text-align: center;
+      padding: 6px 1rem;
+      display: none;
+    }
+    .offline-banner.show { display: block; }
+
+/* ── LOGIN PAGE STYLES (v3.7) ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#050507;
+  --card-bg:rgba(10,10,14,0.94);
+  --orange:#FF3C00;
+  --orange-light:#FF6633;
+  --orange-amber:#FF8A00;
+  --glow:rgba(255,60,0,0.4);
+  --glow-soft:rgba(255,60,0,0.15);
+  --bone:#f1f5f9;
+  --mist:#94a3b8;
+  --dim:#475569;
+  --border:rgba(255,255,255,0.08);
+  --border-hot:rgba(255,60,0,0.35);
+  --red:#ef4444;
+  --green:#34d399;
+  --font-body:'Space Grotesk',sans-serif;
+  --font-display:'Syne',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+
+html,body{height:100%;overflow:hidden}
+@media(max-height:780px){html,body{height:auto;overflow-y:auto}}
+body{
+  background:var(--bg);
+  color:var(--bone);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  min-height:100vh;
+}
+
+/* ── CANVAS LAYERS ── */
+#bg-canvas,#bolt-canvas{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+}
+#bolt-canvas{z-index:2;}
+
+/* ── GRID OVERLAY ── */
+.grid-overlay{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,60,0,0.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,60,0,0.022) 1px,transparent 1px);
+  background-size:48px 48px;
+  animation:gridDrift 40s linear infinite;
+}
+@keyframes gridDrift{0%{background-position:0 0}100%{background-position:48px 48px}}
+
+/* ── SCAN LINE ── */
+.scan-line{
+  position:fixed;left:0;right:0;height:2px;z-index:3;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,60,0,0.35),rgba(255,140,0,0.5),rgba(255,60,0,0.35),transparent);
+  animation:scan 9s linear infinite;
+  opacity:0.7;
+}
+/* second scan line offset */
+.scan-line-2{
+  position:fixed;left:0;right:0;height:1px;z-index:3;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent);
+  animation:scan 9s linear 4.5s infinite;
+  opacity:0.5;
+}
+@keyframes scan{0%{top:-2px}100%{top:100vh}}
+
+/* ── RADIAL GLOW ── */
+.radial-glow{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(255,60,0,0.09) 0%,transparent 70%);
+  animation:glow-breathe 5s ease-in-out infinite;
+}
+@keyframes glow-breathe{
+  0%,100%{opacity:0.7;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.06)}
+}
+
+/* ── LIGHTNING BOLT ARCS (corner sparks) ── */
+.spark-tl,.spark-tr,.spark-bl,.spark-br{
+  position:fixed;width:160px;height:160px;pointer-events:none;z-index:2;
+}
+.spark-tl{top:0;left:0}
+.spark-tr{top:0;right:0}
+.spark-bl{bottom:0;left:0}
+.spark-br{bottom:0;right:0}
+.spark-tl svg,.spark-tr svg,.spark-bl svg,.spark-br svg{
+  width:100%;height:100%;opacity:0;
+  animation:sparkFlash 8s ease-in-out infinite;
+}
+.spark-tr svg{animation-delay:2s}
+.spark-bl svg{animation-delay:4s}
+.spark-br svg{animation-delay:6s}
+@keyframes sparkFlash{
+  0%,88%,100%{opacity:0}
+  90%{opacity:0.7}
+  93%{opacity:0.3}
+  95%{opacity:0.8}
+  97%{opacity:0}
+}
+
+/* ── WRAPPER ── */
+.wrapper{
+  position:relative;z-index:10;
+  width:100%;max-width:420px;
+  padding:24px 20px 20px;
+  animation:wrapperIn 0.8s cubic-bezier(0.16,1,0.3,1) both;
+}
+@media(max-width:440px){.wrapper{padding:20px 14px 20px}}
+@keyframes wrapperIn{
+  0%{opacity:0;transform:translateY(28px) scale(0.96)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* ── BRAND ── */
+.brand{text-align:center;margin-bottom:22px;position:relative}
+
+/* ── SONIC WAVE RINGS (NEW) ── */
+.sonic-rings{
+  position:absolute;
+  left:50%;top:32px;
+  transform:translateX(-50%);
+  width:64px;height:64px;
+  pointer-events:none;
+}
+.sonic-ring{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(255,60,0,0.5);
+  animation:sonicExpand 3s ease-out infinite;
+}
+.sonic-ring:nth-child(1){inset:0;animation-delay:0s}
+.sonic-ring:nth-child(2){inset:0;animation-delay:1s}
+.sonic-ring:nth-child(3){inset:0;animation-delay:2s}
+@keyframes sonicExpand{
+  0%{transform:scale(1);opacity:0.8;border-color:rgba(255,60,0,0.6)}
+  100%{transform:scale(4.5);opacity:0;border-color:rgba(255,100,0,0)}
+}
+
+.logo-wrap{
+  width:64px;height:64px;
+  margin:0 auto 14px;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;
+}
+.logo-wrap svg{
+  filter:drop-shadow(0 0 20px rgba(255,60,0,0.8)) drop-shadow(0 0 40px rgba(255,60,0,0.4));
+  animation:logoFloat 4s ease-in-out infinite;
+}
+@keyframes logoFloat{
+  0%,100%{transform:translateY(0) rotate(-1deg)}
+  50%{transform:translateY(-6px) rotate(1deg)}
+}
+
+/* ── ENERGY ORBIT (NEW) ── */
+.orbit-ring{
+  position:absolute;inset:-16px;
+  border-radius:50%;
+  border:1px dashed rgba(255,100,0,0.2);
+  animation:orbitSpin 12s linear infinite;
+}
+.orbit-ring::before{
+  content:'';
+  position:absolute;width:6px;height:6px;border-radius:50%;
+  background:var(--orange-light);
+  top:-3px;left:50%;transform:translateX(-50%);
+  box-shadow:0 0 8px var(--orange),0 0 16px rgba(255,60,0,0.6);
+  animation:orbitDot 12s linear infinite;
+}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+@keyframes orbitDot{
+  0%{box-shadow:0 0 8px var(--orange),0 0 16px rgba(255,60,0,0.6)}
+  50%{box-shadow:0 0 12px var(--orange-amber),0 0 24px rgba(255,140,0,0.8)}
+  100%{box-shadow:0 0 8px var(--orange),0 0 16px rgba(255,60,0,0.6)}
+}
+.orbit-ring-2{
+  position:absolute;inset:-24px;
+  border-radius:50%;
+  border:1px dashed rgba(255,100,0,0.1);
+  animation:orbitSpin 20s linear infinite reverse;
+}
+.orbit-ring-2::before{
+  content:'';
+  position:absolute;width:4px;height:4px;border-radius:50%;
+  background:var(--orange-amber);
+  bottom:-2px;left:50%;transform:translateX(-50%);
+  box-shadow:0 0 6px var(--orange-amber);
+}
+
+.logo-ring{
+  position:absolute;inset:-8px;border-radius:50%;
+  border:1px solid rgba(255,60,0,0.3);
+  animation:ringPulse 3s ease-in-out infinite;
+}
+@keyframes ringPulse{
+  0%,100%{transform:scale(1);opacity:0.5}
+  50%{transform:scale(1.08);opacity:1}
+}
+
+/* ── LIGHTNING BOLT ICON FLASH (NEW) ── */
+.logo-flash{
+  position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,200,0,0.3) 0%,transparent 70%);
+  animation:boltFlash 6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes boltFlash{
+  0%,85%,100%{opacity:0;transform:scale(0.8)}
+  88%{opacity:1;transform:scale(1.3)}
+  91%{opacity:0.3;transform:scale(1)}
+  93%{opacity:0.9;transform:scale(1.2)}
+  96%{opacity:0}
+}
+
+.brand-name{
+  font-family:var(--font-display);
+  font-size:22px;font-weight:800;
+  letter-spacing:0.14em;
+  background:linear-gradient(135deg,var(--orange-light),var(--orange-amber));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  position:relative;
+  display:inline-block;
+}
+/* Glitch layers */
+.brand-name::before,.brand-name::after{
+  content:'SONIC AGENT';
+  position:absolute;left:0;top:0;
+  background:linear-gradient(135deg,var(--orange-light),var(--orange-amber));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:glitch 6s infinite;
+  opacity:0;
+}
+.brand-name::before{animation-delay:0s}
+.brand-name::after{animation-delay:0.08s;filter:hue-rotate(90deg)}
+@keyframes glitch{
+  0%,92%,100%{opacity:0;transform:none;clip-path:none}
+  93%{opacity:0.8;transform:translate(-2px,1px);clip-path:polygon(0 20%,100% 20%,100% 40%,0 40%)}
+  94%{opacity:0.4;transform:translate(3px,-1px);clip-path:polygon(0 60%,100% 60%,100% 80%,0 80%)}
+  95%{opacity:0.9;transform:translate(-1px,2px);clip-path:polygon(0 0,100% 0,100% 30%,0 30%)}
+  96%{opacity:0;transform:none}
+}
+
+/* ── TYPEWRITER SUBTITLE (NEW) ── */
+.brand-sub{
+  font-family:var(--font-mono);
+  font-size:10px;color:var(--dim);
+  letter-spacing:0.1em;margin-top:6px;
+  min-height:16px;
+  display:flex;align-items:center;justify-content:center;gap:0;
+}
+.typewriter-text{display:inline}
+.cursor{
+  display:inline-block;
+  width:7px;height:11px;
+  background:var(--orange);
+  margin-left:2px;
+  animation:blink 1.1s step-end infinite;
+  vertical-align:middle;
+  border-radius:1px;
+  flex-shrink:0;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ── SOCIAL PROOF ── */
+.social-proof{
+  font-family:var(--font-mono);font-size:8px;
+  color:rgba(148,163,184,0.35);
+  letter-spacing:0.1em;text-transform:uppercase;
+  margin-top:4px;margin-bottom:2px;
+}
+.social-proof span{
+  color:rgba(255,100,0,0.5);font-weight:600;
+}
+
+/* ── INLINE FIELD ERROR ── */
+.field-error{
+  font-family:var(--font-mono);font-size:8px;
+  color:var(--red);letter-spacing:0.05em;
+  margin-top:4px;
+  animation:msgIn 0.2s ease;
+  display:none;
+}
+.field-error.show{display:block}
+.input-wrap.has-error input{
+  border-color:rgba(239,68,68,0.5)!important;
+  box-shadow:0 0 0 3px rgba(239,68,68,0.08)!important;
+}
+
+/* ── REMEMBER ME ── */
+.remember-row{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:14px;
+}
+.remember-row input[type=checkbox]{
+  appearance:none;-webkit-appearance:none;
+  width:14px;height:14px;border-radius:3px;
+  border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.03);
+  cursor:pointer;position:relative;
+  flex-shrink:0;transition:all 0.15s;
+}
+.remember-row input[type=checkbox]:checked{
+  background:var(--orange);
+  border-color:var(--orange);
+}
+.remember-row input[type=checkbox]:checked::after{
+  content:'';position:absolute;
+  left:3px;top:1px;width:5px;height:8px;
+  border:2px solid #fff;border-top:none;border-left:none;
+  transform:rotate(45deg);display:block;
+}
+.remember-row label{
+  font-family:var(--font-mono);font-size:9px;
+  color:var(--dim);letter-spacing:0.06em;
+  cursor:pointer;user-select:none;
+  margin:0!important;text-transform:none!important;
+}
+
+/* ── REGISTER SUCCESS MINI-STATE ── */
+.reg-success-overlay{
+  position:absolute;inset:0;border-radius:16px;
+  background:rgba(5,5,7,0.96);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;z-index:50;
+  animation:overlayIn 0.3s ease;
+}
+.reg-success-icon{
+  width:50px;height:50px;border-radius:50%;
+  border:2px solid var(--orange-light);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 24px rgba(255,100,0,0.4);
+  animation:checkPop 0.5s cubic-bezier(0.16,1,0.3,1) both;
+  font-size:20px;
+}
+.reg-success-title{
+  font-family:var(--font-mono);font-size:11px;
+  color:var(--orange-light);letter-spacing:0.12em;
+  animation:fadeInUp 0.4s ease 0.3s both;
+}
+.reg-success-sub{
+  font-family:var(--font-mono);font-size:9px;
+  color:var(--dim);letter-spacing:0.06em;
+  animation:fadeInUp 0.4s ease 0.5s both;
+}
+.reg-success-btn{
+  margin-top:6px;
+  padding:9px 20px;border-radius:7px;border:none;
+  background:linear-gradient(135deg,var(--orange),var(--orange-light));
+  color:#fff;font-family:var(--font-mono);font-size:10px;font-weight:700;
+  letter-spacing:0.08em;cursor:pointer;
+  box-shadow:0 4px 20px rgba(255,60,0,0.4);
+  animation:fadeInUp 0.4s ease 0.7s both;
+  transition:transform 0.15s,box-shadow 0.15s;
+}
+.reg-success-btn:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(255,60,0,0.6)}
+.status-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:999px;
+  border:1px solid rgba(52,211,153,0.3);
+  background:rgba(52,211,153,0.06);
+  font-family:var(--font-mono);
+  font-size:9px;color:var(--green);
+  letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:18px;
+  position:relative;overflow:hidden;
+}
+/* badge shimmer */
+.status-badge::after{
+  content:'';position:absolute;top:0;left:-80%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(52,211,153,0.12),transparent);
+  animation:badgeShimmer 4s ease-in-out infinite 2s;
+}
+@keyframes badgeShimmer{0%{left:-80%}50%,100%{left:140%}}
+.status-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  animation:pulse-dot 2s ease-in-out infinite;
+  box-shadow:0 0 8px var(--green),0 0 14px rgba(52,211,153,0.4);
+}
+@keyframes pulse-dot{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(0.65);opacity:0.5}
+}
+
+/* ── HEX COUNTER (NEW) — live agent metric ── */
+.agent-metric{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:8px;color:var(--dim);
+  letter-spacing:0.1em;margin-bottom:16px;
+  padding:3px 10px 3px 8px;
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:4px;
+  background:rgba(255,255,255,0.02);
+}
+.metric-item{display:flex;flex-direction:column;align-items:center;gap:1px}
+.metric-val{color:var(--orange-light);font-size:11px;font-weight:700;line-height:1}
+.metric-sep{color:rgba(255,255,255,0.1);font-size:14px;margin:0 2px}
+
+/* ── TABS ── */
+.tabs{
+  display:flex;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:4px;
+  margin-bottom:16px;
+  gap:4px;
+}
+.tab{
+  flex:1;padding:9px 0;
+  border-radius:7px;border:none;
+  font-family:var(--font-mono);
+  font-size:10px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  cursor:pointer;transition:all 0.25s cubic-bezier(0.16,1,0.3,1);
+  position:relative;overflow:hidden;
+}
+.tab.active{
+  background:linear-gradient(135deg,var(--orange),var(--orange-light));
+  color:#fff;
+  box-shadow:0 0 16px rgba(255,60,0,0.4),inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.tab.active::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);
+}
+.tab:not(.active){color:var(--dim);background:transparent}
+.tab:not(.active):hover{color:var(--bone);background:rgba(255,255,255,0.05)}
+
+/* ── CARD ── */
+.card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px 22px 22px;
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  position:relative;overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03) inset,
+    0 32px 80px rgba(0,0,0,0.7),
+    0 0 80px rgba(255,60,0,0.07);
+}
+/* top edge glow line */
+.card::before{
+  content:'';
+  position:absolute;top:0;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,102,51,0.6),rgba(255,160,0,0.4),rgba(255,102,51,0.6),transparent);
+  animation:topGlow 4s ease-in-out infinite;
+}
+@keyframes topGlow{
+  0%,100%{opacity:0.5;left:8%;right:8%}
+  50%{opacity:1;left:5%;right:5%}
+}
+/* Corner accent */
+.card::after{
+  content:'';position:absolute;top:0;right:0;
+  width:100px;height:100px;
+  background:radial-gradient(circle at top right,rgba(255,60,0,0.1),transparent 70%);
+  animation:cornerPulse 5s ease-in-out infinite;
+}
+@keyframes cornerPulse{
+  0%,100%{opacity:0.5}50%{opacity:1}
+}
+
+/* ── CARD INNER SCAN (NEW) ── */
+.card-scan{
+  position:absolute;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,60,0,0.15),transparent);
+  animation:cardScan 6s ease-in-out infinite 1s;
+  pointer-events:none;z-index:0;
+}
+@keyframes cardScan{
+  0%{top:0;opacity:0}
+  5%{opacity:1}
+  95%{opacity:1}
+  100%{top:100%;opacity:0}
+}
+
+/* ── CORNER BRACKETS ── */
+.corner-tl,.corner-tr,.corner-bl,.corner-br-c{
+  position:absolute;width:14px;height:14px;pointer-events:none;
+  animation:bracketBlink 4s ease-in-out infinite;
+}
+.corner-tl{top:10px;left:10px;border-top:1px solid var(--orange);border-left:1px solid var(--orange);opacity:0.4}
+.corner-tr{top:10px;right:10px;border-top:1px solid var(--orange);border-right:1px solid var(--orange);opacity:0.4;animation-delay:1s}
+.corner-bl{bottom:10px;left:10px;border-bottom:1px solid var(--orange);border-left:1px solid var(--orange);opacity:0.4;animation-delay:2s}
+.corner-br-c{bottom:10px;right:10px;border-bottom:1px solid var(--orange);border-right:1px solid var(--orange);opacity:0.4;animation-delay:3s}
+@keyframes bracketBlink{
+  0%,100%{opacity:0.4}
+  50%{opacity:0.9}
+}
+
+/* ── GOOGLE BTN ── */
+.btn-google{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:12px 14px;border-radius:9px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.05);
+  color:var(--bone);
+  font-family:var(--font-mono);font-size:11px;font-weight:600;
+  cursor:pointer;transition:all 0.2s;
+  position:relative;overflow:hidden;
+}
+.btn-google::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.06),transparent);
+  opacity:0;transition:opacity 0.2s;
+}
+.btn-google:hover::before{opacity:1}
+.btn-google:hover{
+  border-color:rgba(255,255,255,0.22);
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+  transform:translateY(-1px);
+}
+.btn-google:active{transform:translateY(0)}
+.btn-google .shimmer{
+  position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);
+  animation:shimmer 4s ease-in-out infinite 1s;
+}
+@keyframes shimmer{0%{left:-100%}60%,100%{left:150%}}
+
+/* ── DIVIDER ── */
+.divider{display:flex;align-items:center;gap:10px;margin:16px 0}
+.divider hr{flex:1;border:none;border-top:1px solid rgba(255,255,255,0.06)}
+.divider span{font-family:var(--font-mono);font-size:9px;color:var(--dim);letter-spacing:0.12em}
+
+/* ── FIELD ── */
+.field{margin-bottom:13px}
+.field label{
+  display:block;font-family:var(--font-mono);font-size:9px;
+  color:var(--dim);letter-spacing:0.14em;
+  text-transform:uppercase;margin-bottom:6px;transition:color 0.2s;
+}
+.field:focus-within label{color:var(--orange-light)}
+.input-wrap{position:relative}
+.input-wrap input{
+  width:100%;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:8px;
+  padding:11px 14px;
+  color:var(--bone);
+  font-family:var(--font-mono);font-size:12px;
+  outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;
+  -webkit-appearance:none;
+}
+.input-wrap input:focus{
+  border-color:rgba(255,102,51,0.5);
+  box-shadow:0 0 0 3px rgba(255,60,0,0.08),0 0 20px rgba(255,60,0,0.12);
+  background:rgba(255,255,255,0.05);
+}
+.input-wrap input::placeholder{color:rgba(148,163,184,0.28)}
+.input-wrap::before{
+  content:'';
+  position:absolute;left:0;top:20%;bottom:20%;width:2px;
+  border-radius:2px;
+  background:linear-gradient(to bottom,transparent,var(--orange),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.input-wrap:focus-within::before{opacity:1}
+.eye-btn{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--dim);
+  cursor:pointer;display:flex;align-items:center;
+  padding:4px;transition:color 0.2s;
+}
+.eye-btn:hover{color:var(--bone)}
+
+/* ── FORGOT ── */
+.forgot{text-align:right;margin-bottom:13px}
+.forgot a{
+  font-family:var(--font-mono);font-size:9px;
+  color:var(--orange-light);text-decoration:none;
+  letter-spacing:0.06em;transition:color 0.2s,text-shadow 0.2s;
+}
+.forgot a:hover{color:var(--orange-amber);text-shadow:0 0 8px rgba(255,102,51,0.6)}
+
+/* ── SUBMIT BTN ── */
+.btn-submit{
+  width:100%;padding:13px;
+  border-radius:9px;border:none;
+  background:linear-gradient(135deg,var(--orange),var(--orange-light));
+  color:#fff;
+  font-family:var(--font-mono);font-size:12px;font-weight:700;
+  cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:all 0.2s;
+  letter-spacing:0.05em;
+  box-shadow:0 4px 24px rgba(255,60,0,0.4),0 1px 0 rgba(255,255,255,0.12) inset;
+}
+.btn-submit:hover:not(:disabled){
+  box-shadow:0 6px 36px rgba(255,60,0,0.6),0 1px 0 rgba(255,255,255,0.12) inset;
+  transform:translateY(-1px);
+}
+.btn-submit:active:not(:disabled){transform:translateY(0)}
+.btn-submit:disabled{opacity:0.6;cursor:not-allowed}
+.btn-submit .btn-shimmer{
+  position:absolute;top:0;left:-150%;width:80%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
+  transform:skewX(-20deg);
+  animation:btnShimmer 3s ease-in-out infinite 0.5s;
+}
+@keyframes btnShimmer{0%{left:-150%}50%,100%{left:200%}}
+
+/* ── MESSAGES ── */
+.msg{
+  font-family:var(--font-mono);font-size:10px;
+  margin-bottom:10px;padding:8px 12px;
+  border-radius:6px;letter-spacing:0.03em;
+  animation:msgIn 0.25s ease;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.msg.error{color:var(--red);background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2)}
+.msg.success{color:var(--green);background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2)}
+
+/* ── FOOTER ── */
+.card-footer{
+  text-align:center;margin-top:16px;
+  font-family:var(--font-mono);font-size:9px;color:var(--dim);
+  letter-spacing:0.04em;line-height:1.8;
+}
+.card-footer a{color:var(--orange-light);text-decoration:none;transition:color 0.2s}
+.card-footer a:hover{color:var(--orange-amber)}
+
+/* ── DEMO HINT ── */
+.demo-hint{
+  display:flex;align-items:center;gap:6px;
+  margin-top:10px;padding:7px 12px;
+  border-radius:6px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.05);
+  font-family:var(--font-mono);font-size:9px;color:var(--dim);
+  letter-spacing:0.05em;
+  cursor:pointer;
+  transition:border-color 0.2s,background 0.2s;
+}
+.demo-hint:hover{
+  border-color:rgba(255,60,0,0.2);
+  background:rgba(255,60,0,0.04);
+}
+.demo-hint:hover .key{background:rgba(255,60,0,0.2)}
+.demo-hint .key{
+  background:rgba(255,60,0,0.12);
+  border:1px solid rgba(255,60,0,0.2);
+  border-radius:3px;padding:1px 5px;
+  color:var(--orange-light);font-size:9px;white-space:nowrap;
+  transition:background 0.2s;
+}
+
+/* ── PASSWORD STRENGTH ── */
+.pass-strength{
+  margin-top:5px;
+  display:none;
+}
+.pass-strength.visible{display:block}
+.strength-bar{
+  display:flex;gap:3px;margin-bottom:3px;
+}
+.strength-seg{
+  flex:1;height:2px;border-radius:2px;
+  background:rgba(255,255,255,0.07);
+  transition:background 0.3s ease;
+}
+.strength-seg.active-weak{background:var(--red)}
+.strength-seg.active-fair{background:var(--orange-amber)}
+.strength-seg.active-good{background:#facc15}
+.strength-seg.active-strong{background:var(--green)}
+.strength-label{
+  font-family:var(--font-mono);font-size:8px;
+  letter-spacing:0.1em;text-transform:uppercase;
+  transition:color 0.3s;
+}
+
+/* ── TERMS LINE ── */
+.terms-line{
+  font-family:var(--font-mono);font-size:8px;
+  color:var(--dim);letter-spacing:0.04em;
+  text-align:center;margin-top:8px;
+  display:none;
+}
+.terms-line.visible{display:block}
+.terms-line a{color:var(--orange-light);text-decoration:none}
+.terms-line a:hover{color:var(--orange-amber)}
+
+/* ── VERSION BADGE ── */
+.version-badge{
+  position:fixed;bottom:14px;right:16px;
+  font-family:var(--font-mono);font-size:8px;
+  color:rgba(255,255,255,0.2);letter-spacing:0.1em;
+  z-index:20;
+  transition:color 0.2s;
+}
+.version-badge:hover{color:var(--orange-light)}
+
+/* ── SUCCESS COUNTDOWN ── */
+.success-countdown{
+  font-family:var(--font-mono);font-size:8px;
+  color:rgba(52,211,153,0.5);letter-spacing:0.12em;
+  animation:fadeInUp 0.4s ease 1s both;
+}
+.countdown-bar{
+  width:120px;height:2px;
+  background:rgba(52,211,153,0.15);
+  border-radius:2px;
+  overflow:hidden;
+}
+.countdown-fill{
+  height:100%;width:100%;
+  background:linear-gradient(90deg,rgba(52,211,153,0.4),rgba(52,211,153,0.8));
+  transform-origin:left;
+  animation:countdownDrain 3s linear 1.1s both;
+}
+@keyframes countdownDrain{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+
+/* ── SPINNER ── */
+.spinner{
+  display:inline-block;width:14px;height:14px;
+  border:2px solid rgba(255,255,255,0.2);
+  border-top-color:#fff;border-radius:50%;
+  animation:spin 0.7s linear infinite;vertical-align:middle;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── SUCCESS OVERLAY ── */
+.success-overlay{
+  position:absolute;inset:0;border-radius:16px;
+  background:rgba(5,5,7,0.96);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;z-index:50;
+  animation:overlayIn 0.3s ease;
+}
+@keyframes overlayIn{from{opacity:0}to{opacity:1}}
+.check-circle{
+  width:64px;height:64px;border-radius:50%;
+  border:2px solid var(--green);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 30px rgba(52,211,153,0.4),0 0 60px rgba(52,211,153,0.15);
+  animation:checkPop 0.5s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes checkPop{
+  0%{transform:scale(0);opacity:0}
+  60%{transform:scale(1.15)}
+  100%{transform:scale(1);opacity:1}
+}
+.check-circle svg{animation:drawCheck 0.4s ease 0.3s both}
+@keyframes drawCheck{from{stroke-dashoffset:30}to{stroke-dashoffset:0}}
+.success-text{
+  font-family:var(--font-mono);font-size:11px;
+  color:var(--green);letter-spacing:0.1em;
+  animation:fadeInUp 0.4s ease 0.5s both;
+}
+.success-sub{
+  font-family:var(--font-mono);font-size:9px;
+  color:var(--dim);letter-spacing:0.06em;
+  animation:fadeInUp 0.4s ease 0.7s both;
+}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(6px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── SHAKE ── */
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-6px)}
+  40%{transform:translateX(6px)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(4px)}
+}
+
+/* ── MOUSE FOLLOW GLOW ── */
+#mouse-glow{
+  position:fixed;width:300px;height:300px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,60,0,0.06) 0%,transparent 70%);
+  pointer-events:none;z-index:1;
+  transform:translate(-50%,-50%);
+  transition:left 0.15s ease,top 0.15s ease;
+}
+
+/* ── KEYBOARD FOCUS VISIBLE ── */
+.btn-google:focus-visible,
+.btn-submit:focus-visible,
+.tab:focus-visible,
+.eye-btn:focus-visible,
+.demo-hint:focus-visible{
+  outline:2px solid var(--orange-light);
+  outline-offset:2px;
+}
+
+/* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.001ms!important;
+  }
+  .scan-line,.scan-line-2,.grid-overlay,
+  .radial-glow,.sonic-ring,.orbit-ring,
+  .orbit-ring-2,.logo-ring,.logo-flash,
+  .card-scan,.spark-tl svg,.spark-tr svg,
+  .spark-bl svg,.spark-br svg,
+  .brand-name::before,.brand-name::after,
+  .status-badge::after,.btn-shimmer,
+  .btn-google .shimmer{display:none}
+  #bg-canvas,#bolt-canvas{display:none}
+  .logo-wrap svg{filter:drop-shadow(0 0 12px rgba(255,60,0,0.6))}
+}
+
+</style>
+</head>
+<body>
+
+<!-- OFFLINE MODE BANNER -->
+<div class="offline-banner" id="offline-banner">
+  ⚠ Running in demo mode — auth &amp; clone are simulated locally.
+</div>
+
+<!-- LOGIN SCREEN (React) -->
+<!-- LOGIN SCREEN (v3.7 — Full Featured) -->
+<div id="login-overlay" style="position:fixed;inset:0;z-index:9999;background:#060709;">
+
+<!-- Background layers -->
+<canvas id="bg-canvas"></canvas>
+<canvas id="bolt-canvas"></canvas>
+<div class="grid-overlay"></div>
+<div class="scan-line"></div>
+<div class="scan-line-2"></div>
+<div class="radial-glow"></div>
+<div id="mouse-glow"></div>
+
+<!-- Corner lightning sparks -->
+<div class="spark-tl">
+  <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0 L40 0 L0 40 Z" fill="rgba(255,60,0,0.08)"/>
+    <path d="M5 0 L5 60" stroke="rgba(255,100,0,0.4)" stroke-width="0.5"/>
+    <path d="M0 5 L60 5" stroke="rgba(255,100,0,0.4)" stroke-width="0.5"/>
+    <path d="M0 0 L30 0 L0 30" stroke="rgba(255,140,0,0.6)" stroke-width="1" fill="none"/>
+    <path d="M15 0 L0 15" stroke="rgba(255,200,100,0.8)" stroke-width="0.5"/>
+  </svg>
+</div>
+<div class="spark-tr">
+  <svg viewBox="0 0 160 160" fill="none">
+    <path d="M160 0 L120 0 L160 40 Z" fill="rgba(255,60,0,0.08)"/>
+    <path d="M155 0 L155 60" stroke="rgba(255,100,0,0.4)" stroke-width="0.5"/>
+    <path d="M160 5 L100 5" stroke="rgba(255,100,0,0.4)" stroke-width="0.5"/>
+    <path d="M160 0 L130 0 L160 30" stroke="rgba(255,140,0,0.6)" stroke-width="1" fill="none"/>
+    <path d="M145 0 L160 15" stroke="rgba(255,200,100,0.8)" stroke-width="0.5"/>
+  </svg>
+</div>
+<div class="spark-bl">
+  <svg viewBox="0 0 160 160" fill="none">
+    <path d="M0 160 L40 160 L0 120 Z" fill="rgba(255,60,0,0.08)"/>
+    <path d="M5 160 L5 100" stroke="rgba(255,100,0,0.4)" stroke-width="0.5"/>
+    <path d="M0 155 L60 155" stroke="rgba(255,100,0,0.4)" stroke-width="0.5"/>
+    <path d="M0 160 L30 160 L0 130" stroke="rgba(255,140,0,0.6)" stroke-width="1" fill="none"/>
+  </svg>
+</div>
+<div class="spark-br">
+  <svg viewBox="0 0 160 160" fill="none">
+    <path d="M160 160 L120 160 L160 120 Z" fill="rgba(255,60,0,0.08)"/>
+    <path d="M155 160 L155 100" stroke="rgba(255,100,0,0.4)" stroke-width="0.5"/>
+    <path d="M160 155 L100 155" stroke="rgba(255,100,0,0.4)" stroke-width="0.5"/>
+    <path d="M160 160 L130 160 L160 130" stroke="rgba(255,140,0,0.6)" stroke-width="1" fill="none"/>
+  </svg>
+</div>
+
+<div class="wrapper">
+  <!-- Brand section -->
+  <div class="brand">
+    <!-- Sonic wave rings expanding out from logo -->
+    <div class="sonic-rings">
+      <div class="sonic-ring"></div>
+      <div class="sonic-ring"></div>
+      <div class="sonic-ring"></div>
+    </div>
+
+    <div class="logo-wrap">
+      <div class="orbit-ring"></div>
+      <div class="orbit-ring-2"></div>
+      <div class="logo-ring"></div>
+      <div class="logo-flash"></div>
+      <svg width="60" height="60" viewBox="0 0 36 36" fill="none">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="36" x2="36" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FF3C00"/>
+            <stop offset="100%" stop-color="#FF9500"/>
+          </linearGradient>
+          <linearGradient id="lg-bolt-l" x1="0" y1="0" x2="18" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#FFD0A0"/>
+          </linearGradient>
+          <filter id="glow-f" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-arc" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="1.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Dark rounded square base -->
+        <rect width="36" height="36" rx="9" fill="#0c0c0c"/>
+        <!-- Gradient background glow inside -->
+        <rect width="36" height="36" rx="9" fill="url(#lg)" opacity="0.15"/>
+        <!-- Border -->
+        <rect x="0.5" y="0.5" width="35" height="35" rx="8.5" fill="none" stroke="url(#lg)" stroke-width="1" opacity="0.8"/>
+        <!-- Corner accent top-left -->
+        <path d="M0 9 L0 3 Q0 0 3 0 L9 0" stroke="rgba(255,149,0,0.6)" stroke-width="0.8" fill="none"/>
+        <!-- Corner accent bottom-right -->
+        <path d="M36 27 L36 33 Q36 36 33 36 L27 36" stroke="rgba(255,60,0,0.6)" stroke-width="0.8" fill="none"/>
+        <!-- Speed arc outer -->
+        <path d="M24 8 A13 13 0 0 1 28 18" stroke="url(#lg)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6" filter="url(#glow-arc)"/>
+        <!-- Speed arc inner -->
+        <path d="M22 10.5 A10 10 0 0 1 26 18" stroke="rgba(255,149,0,0.35)" stroke-width="1" stroke-linecap="round" fill="none"/>
+        <!-- Lightning bolt — core mark with glow -->
+        <path d="M21.5 7 L11 19.5 L17.5 19.5 L14.5 29 L25 16.5 L18.5 16.5 Z" fill="url(#lg-bolt-l)" filter="url(#glow-f)"/>
+      </svg>
+    </div>
+
+    <div class="brand-name">SONIC AGENT</div>
+    <div class="brand-sub">
+      <span class="typewriter-text" id="tw-text"></span><span class="cursor"></span>
+    </div>
+    <div class="social-proof">Trusted by <span>200+</span> engineering teams</div>
+  </div>
+
+  <!-- Status + live metrics -->
+  <div style="text-align:center">
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      All systems operational
+    </div>
+    <br>
+    <div class="agent-metric" style="margin:0 auto 0;display:inline-flex">
+      <div class="metric-item"><span class="metric-val" id="m-agents">847</span><span>agents</span></div>
+      <span class="metric-sep">·</span>
+      <div class="metric-item"><span class="metric-val" id="m-tasks">12.4k</span><span>tasks/hr</span></div>
+      <span class="metric-sep">·</span>
+      <div class="metric-item"><span class="metric-val" id="m-uptime">99.9%</span><span>uptime</span></div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs" style="margin-top:16px" id="tabs">
+    <button class="tab active" onclick="setMode('login')" id="tab-login">Sign In</button>
+    <button class="tab" onclick="setMode('register')" id="tab-register">Register</button>
+  </div>
+
+  <!-- Card -->
+  <div class="card" id="main-card">
+    <div class="card-scan"></div>
+    <div class="corner-tl"></div>
+    <div class="corner-tr"></div>
+    <div class="corner-bl"></div>
+    <div class="corner-br-c"></div>
+
+    <!-- Success overlay -->
+    <div class="success-overlay" id="success-overlay" style="display:none">
+      <div class="check-circle">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <polyline points="4 12 9 17 20 6" stroke="#34d399" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            stroke-dasharray="30" stroke-dashoffset="30"/>
+        </svg>
+      </div>
+      <div class="success-text">AUTHENTICATED</div>
+      <div class="success-sub" id="success-sub-text">Welcome back, Demo User</div>
+      <div class="countdown-bar"><div class="countdown-fill" id="countdown-fill"></div></div>
+      <div class="success-countdown" id="success-countdown">LAUNCHING DASHBOARD…</div>
+    </div>
+
+    <!-- Register success overlay -->
+    <div class="reg-success-overlay" id="reg-success-overlay" style="display:none">
+      <div class="reg-success-icon">⚡</div>
+      <div class="reg-success-title">ACCOUNT CREATED</div>
+      <div class="reg-success-sub" id="reg-success-name">Ready to deploy, Agent</div>
+      <button class="reg-success-btn" onclick="goToLogin()">Sign In Now →</button>
+    </div>
+
+    <!-- Google button -->
+    <button class="btn-google" id="btn-google" onclick="handleGoogle()">
+      <div class="shimmer"></div>
+      <svg id="google-icon" width="17" height="17" viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.14 0 5.95 1.08 8.17 2.86l6.1-6.1C34.46 3.19 29.5 1 24 1 14.82 1 7.07 6.48 3.64 14.21l7.1 5.52C12.51 13.65 17.77 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.15 24.5c0-1.64-.15-3.22-.42-4.74H24v8.98h12.45c-.54 2.88-2.17 5.32-4.62 6.96l7.1 5.52C43.12 37.35 46.15 31.4 46.15 24.5z"/>
+        <path fill="#FBBC05" d="M10.74 28.27A14.5 14.5 0 0 1 9.5 24c0-1.49.26-2.93.74-4.27l-7.1-5.52A23.94 23.94 0 0 0 0 24c0 3.87.93 7.52 2.56 10.73l7.18-5.46z"/>
+        <path fill="#34A853" d="M24 47c5.5 0 10.12-1.82 13.5-4.95l-7.1-5.52C28.6 38.27 26.42 39 24 39c-6.23 0-11.5-4.15-13.26-9.73l-7.18 5.46C7.07 42.52 14.82 47 24 47z"/>
+      </svg>
+      <span id="google-label">Sign in with Google</span>
+    </button>
+
+    <div class="divider"><hr/><span>OR</span><hr/></div>
+
+    <!-- Register name -->
+    <div class="field" id="field-name" style="display:none">
+      <label for="inp-name">Full Name</label>
+      <div class="input-wrap" id="wrap-name">
+        <input type="text" id="inp-name" placeholder="Your name" autocomplete="name" aria-label="Full name"/>
+      </div>
+      <div class="field-error" id="err-name"></div>
+    </div>
+
+    <!-- Email -->
+    <div class="field">
+      <label for="inp-email">Email</label>
+      <div class="input-wrap" id="wrap-email">
+        <input type="email" id="inp-email" placeholder="you@team.ai" autocomplete="email" aria-label="Email address" onblur="trimEmail()"/>
+      </div>
+      <div class="field-error" id="err-email"></div>
+    </div>
+
+    <!-- Password -->
+    <div class="field" style="margin-bottom:0">
+      <label for="inp-pass">Password</label>
+      <div class="input-wrap" id="wrap-pass">
+        <input type="password" id="inp-pass" placeholder="••••••••" autocomplete="current-password" aria-label="Password" oninput="checkStrength(this.value)"/>
+        <button class="eye-btn" onclick="togglePass()" tabindex="-1" aria-label="Toggle password visibility" id="eye-btn">
+          <svg id="eye-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+            <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
+      <div class="field-error" id="err-pass"></div>
+      <div class="pass-strength" id="pass-strength">
+        <div class="strength-bar">
+          <div class="strength-seg" id="seg1"></div>
+          <div class="strength-seg" id="seg2"></div>
+          <div class="strength-seg" id="seg3"></div>
+          <div class="strength-seg" id="seg4"></div>
+        </div>
+        <span class="strength-label" id="strength-label" style="color:var(--dim)">—</span>
+      </div>
+    </div>
+
+    <!-- Forgot + Remember Me row -->
+    <div id="forgot-row" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px">
+      <div class="remember-row" style="margin-bottom:0">
+        <input type="checkbox" id="remember-me"/>
+        <label for="remember-me">Remember me</label>
+      </div>
+      <div class="forgot" style="margin-bottom:0">
+        <a href="#" onclick="handleForgot(event)" id="forgot-link">Forgot password?</a>
+      </div>
+    </div>
+
+    <!-- Confirm pass -->
+    <div class="field" id="field-confirm" style="display:none">
+      <label for="inp-confirm">Confirm Password</label>
+      <div class="input-wrap" id="wrap-confirm">
+        <input type="password" id="inp-confirm" placeholder="••••••••" autocomplete="new-password" aria-label="Confirm password"/>
+      </div>
+      <div class="field-error" id="err-confirm"></div>
+    </div>
+
+    <div id="msg-area"></div>
+
+    <!-- Submit -->
+    <button class="btn-submit" id="btn-submit" onclick="handleSubmit()">
+      <div class="btn-shimmer"></div>
+      <span id="submit-label">Sign In →</span>
+    </button>
+
+    <div class="card-footer" id="card-footer">
+      No account? <a href="#" onclick="setMode('register');return false">Register here</a>
+    </div>
+
+    <div class="demo-hint" id="demo-hint" onclick="autofillDemo()" title="Click to auto-fill demo credentials" tabindex="0" role="button" aria-label="Auto-fill demo credentials" onkeydown="if(event.key==='Enter'||event.key===' ')autofillDemo()">
+      <span>⚡ Try demo:</span>
+      <span class="key">demo@sonicagent.ai</span>
+      <span>/</span>
+      <span class="key">demo123</span>
+    </div>
+    <div class="terms-line" id="terms-line">
+      By registering you agree to our <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</div>
+
+<!-- Version badge -->
+<div class="version-badge">v3.7.0</div>
+
+</div>
+
+<div id="main-site">
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <!-- SONIC AGENT LOGO — rounded square + bolt -->
+    <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <defs>
+        <linearGradient id="lg-bg" x1="0" y1="36" x2="36" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#FF3C00"/>
+          <stop offset="100%" stop-color="#FF9500"/>
+        </linearGradient>
+        <linearGradient id="lg-bolt" x1="0" y1="0" x2="18" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#FFD0A0"/>
+        </linearGradient>
+        <filter id="glow-nav" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="2.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="glow-ring" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="1.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- Dark rounded square base -->
+      <rect width="36" height="36" rx="9" fill="#0e0e0e"/>
+      <!-- Gradient fill overlay -->
+      <rect width="36" height="36" rx="9" fill="url(#lg-bg)" opacity="0.18"/>
+      <!-- Border glow -->
+      <rect x="0.5" y="0.5" width="35" height="35" rx="8.5" fill="none" stroke="url(#lg-bg)" stroke-width="1" opacity="0.7"/>
+      <!-- Speed arc top-right -->
+      <path d="M23 8.5 A11 11 0 0 1 27.5 18" stroke="#FF9500" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.5" filter="url(#glow-ring)"/>
+      <!-- Speed arc bottom-left -->
+      <path d="M13 27.5 A11 11 0 0 1 8.5 18" stroke="#FF9500" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.3"/>
+      <!-- Lightning bolt — main mark -->
+      <path d="M21.5 7 L11 19.5 L17.5 19.5 L14.5 29 L25 16.5 L18.5 16.5 Z" fill="url(#lg-bolt)" filter="url(#glow-nav)"/>
+    </svg>
+    <span style="background:linear-gradient(135deg,#ffffff 0%,#FFD0B8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.01em;">Sonic Agent</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://kickstart.easya.io/" target="_blank" rel="noopener" style="color:var(--blue-light)!important;">Kickstart</a></li>
+    <li><a href="https://solscan.io/" target="_blank" rel="noopener" style="color:var(--blue-light)!important;">Solscan</a></li>
+    <li><a href="https://x.com/EasyA_Kickstart" target="_blank" rel="noopener" style="color:var(--blue-light)!important;">𝕏 EasyA</a></li>
+    <li><a href="https://github.com/sonrblxaka/Sonic-agent" target="_blank" rel="noopener" style="color:var(--blue-light)!important;">GitHub</a></li>
+    <li><a href="https://x.com/sonrblxaka" target="_blank" rel="noopener" style="color:var(--blue-light)!important;">𝕏 @sonrblxaka</a></li>
+  </ul>
+
+  <div class="nav-actions" id="nav-actions">
+    <!-- filled by JS after login -->
+  </div>
+
+  <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#features" onclick="closeMobileNav()">Features</a>
+  <a href="#how-it-works" onclick="closeMobileNav()">How it works</a>
+  <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
+  <a href="#roadmap" onclick="closeMobileNav()">Roadmap</a>
+  <a href="#testimonials" onclick="closeMobileNav()">Testimonials</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="https://kickstart.easya.io/" target="_blank" rel="noopener" onclick="closeMobileNav()" style="color:var(--blue-light)">EasyA Kickstart ↗</a>
+  <a href="https://solscan.io/" target="_blank" rel="noopener" onclick="closeMobileNav()" style="color:var(--blue-light)">Solscan ↗</a>
+  <a href="https://x.com/EasyA_Kickstart" target="_blank" rel="noopener" onclick="closeMobileNav()" style="color:var(--blue-light)">@EasyA_Kickstart ↗</a>
+  <a href="https://github.com/sonrblxaka/Sonic-agent" target="_blank" rel="noopener" onclick="closeMobileNav()" style="color:var(--blue-light)">GitHub ↗</a>
+  <a href="https://x.com/sonrblxaka" target="_blank" rel="noopener" onclick="closeMobileNav()" style="color:var(--blue-light)">@sonrblxaka ↗</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Now in public beta
+  </div>
+
+  <h1>
+    Your AI agent,<br>
+    <span class="accent">always on.</span>
+  </h1>
+
+  <p>Sonic Agent connects your tools, automates your workflows, and acts on your behalf — faster than you can type a prompt.</p>
+
+  <div class="hero-actions">
+    <a href="#features" class="btn btn-primary btn-lg">Explore Features</a>
+    <a href="#how-it-works" class="btn btn-outline btn-lg">See how it works</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">10×</div>
+      <div class="stat-label">Faster workflows</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Integrations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">99.9%</div>
+      <div class="stat-label">Uptime SLA</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Always running</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST LOGOS BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-label">Trusted by engineering teams at</div>
+  <div class="trust-logos">
+    <span class="trust-logo">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </span>
+    <span class="trust-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M7 12h10M12 7l5 5-5 5"/></svg>
+      Stackflow
+    </span>
+    <span class="trust-logo">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>
+      Slack
+    </span>
+    <span class="trust-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Nordia
+    </span>
+    <span class="trust-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Crescent Labs
+    </span>
+    <span class="trust-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      Vanta
+    </span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="features-header reveal">
+    <div class="section-eyebrow">Features</div>
+    <h2 class="section-heading">Everything your agent needs</h2>
+    <p class="section-sub">Built for speed. Designed for scale. Sonic Agent handles the repetitive work so you can focus on what matters.</p>
+  </div>
+
+  <div class="features-grid reveal">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <h3>Instant Execution</h3>
+      <p>Actions fire in milliseconds. Sonic Agent processes events and responds before a human could blink.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+      </div>
+      <h3>Multi-Tool Orchestration</h3>
+      <p>Connect Slack, Notion, GitHub, Linear, and 50+ apps. Your agent coordinates across them seamlessly.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Secure by Default</h3>
+      <p>End-to-end encryption, scoped permissions, and audit logs on every action your agent takes.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>Live Monitoring</h3>
+      <p>Watch your agent work in real time. Replay any step, inspect inputs and outputs, catch errors instantly.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h3>Natural Language Control</h3>
+      <p>Tell your agent what you need in plain English. No code required — it figures out the steps.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Adaptive Learning</h3>
+      <p>Sonic Agent learns your patterns over time and suggests optimizations you hadn't thought of.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </div>
+      <h3>GitHub Clone</h3>
+      <p>Clone any public or private GitHub repository directly from the dashboard — choose branch, depth, and destination in one click.</p>
+    </div>
+  </div>
+  <div class="email-capture reveal">
+    <h3>Stay ahead of the curve</h3>
+    <p>Get early access to new integrations, agent templates, and feature releases.</p>
+    <div class="email-form" id="email-form">
+      <input type="email" id="capture-email" placeholder="your@email.com" aria-label="Email address" onkeydown="if(event.key==='Enter'){event.preventDefault();submitEmailCapture();}" />
+      <button class="btn btn-primary" onclick="submitEmailCapture()">Join waitlist →</button>
+    </div>
+    <div class="email-form-success" id="email-form-success">⚡ You're on the list! We'll be in touch soon.</div>
+    <p style="font-size:0.75rem;color:#333;margin-top:0.75rem;margin-bottom:0">No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div id="how-it-works">
+  <div class="reveal">
+    <div class="section-eyebrow">How it works</div>
+    <h2 class="section-heading">Three steps to an agent that runs your stack</h2>
+    <p class="section-sub">From setup to first automated action in under five minutes.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h4>Connect your tools</h4>
+          <p>Authorize your apps with one click. Sonic Agent handles OAuth, tokens, and permissions — you just pick what to connect.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h4>Describe your workflow</h4>
+          <p>Explain what you want to automate in plain English. The agent breaks it into steps and confirms before running.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h4>Let it run — or take over</h4>
+          <p>Your agent works autonomously, but you can intervene, redirect, or pause at any point from the live dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="how-visual reveal">
+    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" alt="Neural network visualization" />
+    <div class="how-visual-overlay"></div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="reveal">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="section-heading">Start free. Scale when you're ready.</h2>
+    <p class="section-sub">No surprise bills. Every plan includes the full feature set — you only pay for what you use beyond the free tier.</p>
+  </div>
+
+  <div class="pricing-grid reveal">
+    <div class="price-card">
+      <div class="price-label">Starter</div>
+      <div class="price-amount">$0</div>
+      <div class="price-period">Free forever</div>
+      <ul class="price-features">
+        <li>1 active agent</li>
+        <li>500 actions / month</li>
+        <li>5 integrations</li>
+        <li>Community support</li>
+      </ul>
+      <a href="#" class="btn btn-outline" style="width:100%; justify-content:center;">Get started free</a>
+    </div>
+
+    <div class="price-card featured">
+      <div class="featured-tag">Most popular</div>
+      <div class="price-label">Pro</div>
+      <div class="price-amount">$29</div>
+      <div class="price-period">per month</div>
+      <ul class="price-features">
+        <li>10 active agents</li>
+        <li>50,000 actions / month</li>
+        <li>All integrations</li>
+        <li>Priority support</li>
+        <li>Audit logs</li>
+      </ul>
+      <a href="#" class="btn btn-primary" style="width:100%; justify-content:center;">Start Pro trial</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-label">Enterprise</div>
+      <div class="price-amount">Custom</div>
+      <div class="price-period">volume pricing</div>
+      <ul class="price-features">
+        <li>Unlimited agents</li>
+        <li>Unlimited actions</li>
+        <li>SSO & SCIM</li>
+        <li>Dedicated SLA</li>
+        <li>Custom integrations</li>
+      </ul>
+      <a href="#" class="btn btn-outline" style="width:100%; justify-content:center;">Contact sales</a>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="reveal" style="margin-top:4rem;">
+    <div class="section-eyebrow">Why Sonic Agent</div>
+    <h2 class="section-heading" style="margin-bottom:0.5rem;">How we stack up</h2>
+    <p class="section-sub">Honest comparison vs the alternatives.</p>
+    <div style="overflow-x:auto;">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="highlight">⚡ Sonic Agent</th>
+          <th>GitHub Actions</th>
+          <th>Zapier</th>
+          <th>Linear</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Natural language control</td>
+          <td class="highlight"><span class="comp-yes">✓ Yes</span></td>
+          <td><span class="comp-no">✗ No</span></td>
+          <td><span class="comp-partial">~ Limited</span></td>
+          <td><span class="comp-no">✗ No</span></td>
+        </tr>
+        <tr>
+          <td>Cross-tool orchestration</td>
+          <td class="highlight"><span class="comp-yes">✓ 50+ tools</span></td>
+          <td><span class="comp-partial">~ GitHub only</span></td>
+          <td><span class="comp-yes">✓ Many</span></td>
+          <td><span class="comp-no">✗ No</span></td>
+        </tr>
+        <tr>
+          <td>Autonomous decision-making</td>
+          <td class="highlight"><span class="comp-yes">✓ Yes</span></td>
+          <td><span class="comp-no">✗ Rule-based</span></td>
+          <td><span class="comp-no">✗ Rule-based</span></td>
+          <td><span class="comp-no">✗ No</span></td>
+        </tr>
+        <tr>
+          <td>Live action monitoring</td>
+          <td class="highlight"><span class="comp-yes">✓ Real-time</span></td>
+          <td><span class="comp-partial">~ Logs only</span></td>
+          <td><span class="comp-partial">~ Basic</span></td>
+          <td><span class="comp-no">✗ No</span></td>
+        </tr>
+        <tr>
+          <td>Roll back any action</td>
+          <td class="highlight"><span class="comp-yes">✓ Yes</span></td>
+          <td><span class="comp-no">✗ No</span></td>
+          <td><span class="comp-no">✗ No</span></td>
+          <td><span class="comp-no">✗ No</span></td>
+        </tr>
+        <tr>
+          <td>Free tier</td>
+          <td class="highlight"><span class="comp-yes">✓ Forever free</span></td>
+          <td><span class="comp-yes">✓ Yes</span></td>
+          <td><span class="comp-partial">~ Limited</span></td>
+          <td><span class="comp-yes">✓ Yes</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="reveal">
+    <div class="section-eyebrow">Roadmap</div>
+    <h2 class="section-heading">What's next for Sonic Agent</h2>
+    <p class="section-sub">A look at where we've been and where we're headed next. Timelines may shift as we ship.</p>
+  </div>
+
+  <div class="roadmap-timeline reveal">
+    <div class="roadmap-item done">
+      <div class="roadmap-dot"></div>
+      <div class="roadmap-head">
+        <div class="roadmap-quarter">Q2–Q3 2026</div>
+        <div class="roadmap-status shipped">Shipped</div>
+      </div>
+      <ul class="roadmap-list">
+        <li>Public beta launch</li>
+        <li>50+ integrations</li>
+        <li>Live monitoring dashboard</li>
+        <li>Audit logs</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-item progress">
+      <div class="roadmap-dot"></div>
+      <div class="roadmap-head">
+        <div class="roadmap-quarter">Q4 2026</div>
+        <div class="roadmap-status progress">In progress</div>
+      </div>
+      <ul class="roadmap-list">
+        <li>Mobile companion app</li>
+        <li>Custom agent templates</li>
+        <li>Voice control</li>
+        <li>Native Slack & Teams apps</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-item planned">
+      <div class="roadmap-dot"></div>
+      <div class="roadmap-head">
+        <div class="roadmap-quarter">Q1 2027</div>
+        <div class="roadmap-status planned">Planned</div>
+      </div>
+      <ul class="roadmap-list">
+        <li>Multi-agent collaboration</li>
+        <li>On-prem & VPC deployment</li>
+        <li>Advanced analytics dashboard</li>
+        <li>SOC 2 Type II</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-item planned">
+      <div class="roadmap-dot"></div>
+      <div class="roadmap-head">
+        <div class="roadmap-quarter">2027 & beyond</div>
+        <div class="roadmap-status planned">Planned</div>
+      </div>
+      <ul class="roadmap-list">
+        <li>Autonomous agent marketplace</li>
+        <li>Cross-platform memory sync</li>
+        <li>Enterprise governance suite</li>
+        <li>Self-hosted open-core option</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="section-eyebrow">Testimonials</div>
+    <h2 class="section-heading">Loved by builders worldwide</h2>
+    <p class="section-sub">Teams across engineering, ops, and product use Sonic Agent every day. Here's what they say.</p>
+  </div>
+
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div>
+        <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testimonial-quote">We cut our release cycle from 2 weeks to 3 days. Sonic Agent handles our entire CI pipeline coordination — Jira, GitHub, Slack — without us lifting a finger.</p>
+      </div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" style="background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#bfdbfe;">AR</div>
+        <div>
+          <div class="testimonial-name">Ariel Reyes</div>
+          <div class="testimonial-role">VP Engineering, Stackflow</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div>
+        <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testimonial-quote">I was skeptical of "AI agent" products after a few bad experiences. Sonic Agent is the first one that actually feels like it understands my workflow instead of guessing at it.</p>
+      </div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" style="background:linear-gradient(135deg,#065f46,#10b981);color:#a7f3d0;">MY</div>
+        <div>
+          <div class="testimonial-name">Maya Yuen</div>
+          <div class="testimonial-role">Product Lead, Crescent Labs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div>
+        <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testimonial-quote">The GitHub Clone feature alone saves our onboarding team hours every week. Setup used to take half a day — now it's a two-minute handoff and the agent does the rest.</p>
+      </div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7c2d12,#ea580c);color:#fed7aa;">DK</div>
+        <div>
+          <div class="testimonial-name">Daniel Kim</div>
+          <div class="testimonial-role">DevOps Engineer, Nordia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-header reveal">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-heading">Questions we actually get</h2>
+    <p class="section-sub">No fluff. If your question isn't here, reach us through the chat widget below.</p>
+  </div>
+
+  <div class="faq-list reveal" id="faq-list">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Does Sonic Agent store my credentials or tokens?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>No plain-text secrets are ever stored. OAuth tokens are encrypted at rest with AES-256 and scoped to the minimum permissions your agent needs. You can revoke access for any integration at any time from your dashboard.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What happens if my agent makes a mistake?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Every action is logged with a full input/output trace. You can replay, undo, or roll back most actions directly from the live monitoring dashboard. For irreversible operations (like sending emails or deleting data), you can configure a confirmation gate before the agent proceeds.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How many agents can I run simultaneously?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>The Starter plan supports 1 active agent, Pro supports 10, and Enterprise is unlimited. "Active" means currently running a workflow — you can have as many agents defined as you like on any plan.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is there a self-hosted option?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>A self-hosted open-core option is planned for 2027. Enterprise customers on the current cloud plan can already choose their data residency region (US, EU, or APAC) and opt into VPC isolation.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can I cancel or switch plans at any time?
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. Subscriptions are month-to-month by default — no lock-in, no cancellation fee. Downgrading mid-cycle gives you a prorated credit to your next invoice. Annual plans come with a 20% discount.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2 class="reveal">Ready to build your<br><span style="background:linear-gradient(135deg,#FF6633,#FF8A00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">first agent?</span></h2>
+  <p class="reveal">Join thousands of teams already running on Sonic Agent. No credit card required.</p>
+  <div class="cta-actions reveal">
+    <a href="#features" class="btn btn-primary btn-lg">Explore Features</a>
+    <a href="#pricing" class="btn btn-outline btn-lg">View Pricing</a>
+  </div>
+</div>
+
+<!-- COMMUNITY / PARTNER STRIP -->
+<div style="border-top:1px solid var(--border);padding:2rem;text-align:center;background:var(--card);">
+  <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;">Part of the ecosystem</div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;">
+    <a href="https://kickstart.easya.io/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;border:1px solid rgba(255,60,0,0.35);border-radius:8px;color:var(--fg);text-decoration:none;font-size:0.85rem;font-weight:600;transition:all 0.2s;background:rgba(255,60,0,0.06);" onmouseover="this.style.background='rgba(255,60,0,0.14)'" onmouseout="this.style.background='rgba(255,60,0,0.06)'">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#FF6633" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      EasyA Kickstart
+    </a>
+    <a href="https://solscan.io/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;border:1px solid rgba(255,60,0,0.35);border-radius:8px;color:var(--fg);text-decoration:none;font-size:0.85rem;font-weight:600;transition:all 0.2s;background:rgba(255,60,0,0.06);" onmouseover="this.style.background='rgba(255,60,0,0.14)'" onmouseout="this.style.background='rgba(255,60,0,0.06)'">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#FF6633" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Solscan
+    </a>
+    <a href="https://x.com/EasyA_Kickstart" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;border:1px solid rgba(255,60,0,0.35);border-radius:8px;color:var(--fg);text-decoration:none;font-size:0.85rem;font-weight:600;transition:all 0.2s;background:rgba(255,60,0,0.06);" onmouseover="this.style.background='rgba(255,60,0,0.14)'" onmouseout="this.style.background='rgba(255,60,0,0.06)'">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="#FF6633"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>
+      @EasyA_Kickstart
+    </a>
+    <a href="https://github.com/sonrblxaka/Sonic-agent" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;border:1px solid rgba(255,60,0,0.35);border-radius:8px;color:var(--fg);text-decoration:none;font-size:0.85rem;font-weight:600;transition:all 0.2s;background:rgba(255,60,0,0.06);" onmouseover="this.style.background='rgba(255,60,0,0.14)'" onmouseout="this.style.background='rgba(255,60,0,0.06)'">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#FF6633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      Sonic Agent Repo
+    </a>
+    <a href="https://x.com/sonrblxaka" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.1rem;border:1px solid rgba(255,60,0,0.35);border-radius:8px;color:var(--fg);text-decoration:none;font-size:0.85rem;font-weight:600;transition:all 0.2s;background:rgba(255,60,0,0.06);" onmouseover="this.style.background='rgba(255,60,0,0.14)'" onmouseout="this.style.background='rgba(255,60,0,0.06)'">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="#FF6633"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>
+      @sonrblxaka
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo" style="font-size:0.95rem;">
+    <div class="logo-icon" style="width:26px;height:26px;">
+      <svg width="26" height="26" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg-foot" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FF6633"/>
+            <stop offset="100%" stop-color="#FF3C00"/>
+          </linearGradient>
+        </defs>
+        <path d="M18 2 L31.5 9.5 L31.5 26.5 L18 34 L4.5 26.5 L4.5 9.5 Z" fill="url(#lg-foot)" />
+        <path d="M25 10 A10 10 0 0 1 28 18" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M11 26 A10 10 0 0 1 8 18" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M20 8 L13 19 L18.5 19 L16 28 L23 17 L17.5 17 Z" fill="white"/>
+      </svg>
+    </div>
+    Sonic Agent
+  </a>
+  <p>© 2026 Sonic Agent. All rights reserved.</p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--muted);">
+    Built by
+    <a href="https://x.com/sonrblxaka" target="_blank" rel="noopener" style="color:var(--blue-light);text-decoration:none;font-weight:600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="vertical-align:middle;margin-right:3px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>@sonrblxaka
+    </a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/sonrblxaka/Sonic-agent" target="_blank" rel="noopener" style="color:var(--blue-light);text-decoration:none;font-weight:600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>View on GitHub
+    </a>
+  </p>
+  <ul class="footer-links">
+    <li><a href="#">Privacy</a></li>
+    <li><a href="#">Terms</a></li>
+    <li><a href="#">Status</a></li>
+    <li><a href="https://kickstart.easya.io/" target="_blank" rel="noopener">EasyA Kickstart</a></li>
+    <li><a href="https://solscan.io/" target="_blank" rel="noopener">Solscan</a></li>
+    <li><a href="https://x.com/EasyA_Kickstart" target="_blank" rel="noopener">@EasyA_Kickstart</a></li>
+    <li><a href="https://github.com/sonrblxaka/Sonic-agent" target="_blank" rel="noopener">GitHub</a></li>
+    <li><a href="https://x.com/sonrblxaka" target="_blank" rel="noopener">@sonrblxaka</a></li>
+  </ul>
+</footer>
+
+</div><!-- /#main-site -->
+
+<!-- CHAT FAB -->
+<button id="chat-fab" onclick="toggleChat()" aria-label="Open chat with Sonic Agent">
+  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <div class="chat-badge"></div>
+</button>
+
+<!-- CHAT PANEL -->
+<div id="chat-panel" role="dialog" aria-label="Chat with Sonic Agent">
+  <div class="chat-header">
+    <div class="chat-header-info">
+      <div class="chat-avatar">⚡</div>
+      <div>
+        <div class="chat-header-name">Sonic Agent</div>
+        <div class="chat-header-status">● Online — AI-powered</div>
+      </div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="chat-msg agent">
+      <div class="chat-msg-avatar">⚡</div>
+      <div class="chat-bubble">Hey! I'm Sonic Agent. Ask me anything about how I work, pricing, integrations, or how to get started. 🚀</div>
+    </div>
+  </div>
+  <div class="chat-suggestions" id="chat-suggestions">
+    <button class="chat-suggestion" onclick="sendSuggestion(this)">How do I connect GitHub?</button>
+    <button class="chat-suggestion" onclick="sendSuggestion(this)">What's included in Pro?</button>
+    <button class="chat-suggestion" onclick="sendSuggestion(this)">Can I try for free?</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chat-input" placeholder="Ask anything…" aria-label="Chat message" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatMessage();}" />
+    <button class="chat-send" onclick="sendChatMessage()" aria-label="Send message">
+      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+  <div class="chat-powered">Powered by Claude AI · Sonic Agent v3.7</div>
+</div>
+
+<!-- GITHUB FAB -->
+<button class="github-fab" id="github-fab" onclick="openGithubPanel()">
+  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  </svg>
+  Clone GitHub Repo
+</button>
+
+<!-- GITHUB CLONE PANEL -->
+<div class="github-panel" id="github-panel">
+  <div class="github-panel-header">
+    <div class="github-panel-title">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#FF6633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+      </svg>
+      GitHub Clone
+    </div>
+    <button class="github-panel-close" onclick="closeGithubPanel()">✕</button>
+  </div>
+
+  <div class="github-panel-body">
+    <!-- URL input row -->
+    <div class="gh-input-row">
+      <input class="gh-input" id="gh-url" type="text" placeholder="https://github.com/owner/repo" />
+      <button class="gh-btn-clone" id="gh-clone-btn" onclick="startClone()">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Clone
+      </button>
+    </div>
+
+    <!-- Options -->
+    <div class="gh-options">
+      <div>
+        <span class="gh-option-label">Branch</span>
+        <input class="gh-input gh-select" id="gh-branch" type="text" placeholder="main" style="padding:7px 10px;font-size:11px;" />
+      </div>
+      <div>
+        <span class="gh-option-label">Depth</span>
+        <select class="gh-select" id="gh-depth">
+          <option value="full">Full history</option>
+          <option value="1" selected>Shallow (--depth 1)</option>
+          <option value="10">Last 10 commits</option>
+          <option value="50">Last 50 commits</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Token (optional) -->
+    <div style="margin-bottom:12px;">
+      <span class="gh-option-label">GitHub Token (optional, for private repos)</span>
+      <input class="gh-input" id="gh-token" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+    </div>
+
+    <!-- Log output -->
+    <div class="gh-log" id="gh-log">
+      <div class="gh-log-line"><span class="msg-dim">→ Enter a GitHub URL above and press Clone</span></div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="gh-progress"><div class="gh-progress-bar" id="gh-progress-bar"></div></div>
+
+    <!-- Result card -->
+    <div class="gh-result-card" id="gh-result-card">
+      <div class="gh-result-name" id="gh-result-name"></div>
+      <div class="gh-result-meta" id="gh-result-meta"></div>
+      <div class="gh-copy-cmd">
+        <span class="gh-cmd-text" id="gh-cmd-text">git clone …</span>
+        <button class="gh-copy-btn" id="gh-copy-btn" onclick="copyCloneCmd()">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<div id="toast" class="toast"></div>
+
+<!-- REACT LOGIN SCREEN -->
+<!-- LOGIN JS (v3.7 — Full Featured) -->
+<script>
+// ── BRIDGE: connect login v3.7 to main site ──
+// Note: functions like renderSonicNav, showSonicToast etc. are defined in the
+// second script block below. By the time this function is *called* (after user
+// clicks login), all functions are already defined — so this is safe.
+window.sonicShowMainSite = function(userData) {
+  if (document.getElementById('login-overlay')) {
+    document.getElementById('login-overlay').style.display = 'none';
+  }
+  var site = document.getElementById('main-site');
+  if (site) site.classList.add('visible');
+  window.__sonicUser = userData;
+  // These functions are defined in the session script block below
+  if (typeof saveSession === 'function') saveSession(userData);
+  if (typeof renderSonicNav === 'function') renderSonicNav(userData);
+  var fab = document.getElementById('github-fab');
+  if (fab) fab.classList.add('visible');
+  if (typeof showSonicToast === 'function') showSonicToast('Welcome back, ' + (userData.name || 'there') + '! 👋');
+  if (typeof initReveal === 'function') initReveal();
+  if (typeof initScrollSpy === 'function') initScrollSpy();
+  if (typeof animateStats === 'function') animateStats();
+  var banner = document.getElementById('offline-banner');
+  if (banner) banner.classList.add('show');
+};
+
+// ── STATE ──
+let mode = 'login';
+let showPass = false;
+let accounts = [{ email: 'demo@sonicagent.ai', password: 'demo123', name: 'Demo User' }];
+
+// ── MOUSE GLOW FOLLOW ──
+const mouseGlow = document.getElementById('mouse-glow');
+document.addEventListener('mousemove', e => {
+  mouseGlow.style.left = e.clientX + 'px';
+  mouseGlow.style.top = e.clientY + 'px';
+});
+
+// ── PARTICLE CANVAS ──
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], mouse = {x: -999, y: -999};
+
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.35;
+      this.vy = (Math.random() - 0.5) * 0.35 - 0.08;
+      this.size = Math.random() * 1.6 + 0.3;
+      this.alpha = Math.random() * 0.5 + 0.1;
+      this.life = 0;
+      this.maxLife = Math.random() * 450 + 200;
+      this.type = Math.random() > 0.8 ? 'hot' : 'cool';
+    }
+    update() {
+      // slight mouse attraction for hot particles
+      if (this.type === 'hot') {
+        const dx = mouse.x - this.x, dy = mouse.y - this.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 200) { this.vx += dx/d*0.008; this.vy += dy/d*0.008; }
+      }
+      this.vx *= 0.99; this.vy *= 0.99;
+      this.x += this.vx; this.y += this.vy; this.life++;
+      if (this.life > this.maxLife || this.x < -10 || this.x > W+10 || this.y < -10 || this.y > H+10) this.reset();
+    }
+    draw() {
+      const ratio = this.life / this.maxLife;
+      const a = this.alpha * Math.sin(ratio * Math.PI);
+      if (this.type === 'hot') {
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(255,80,0,0.9)';
+        ctx.fillStyle = `rgba(255,${50 + Math.floor(ratio*80)},0,${a})`;
+      } else {
+        ctx.shadowBlur = 2;
+        ctx.shadowColor = 'rgba(100,100,150,0.2)';
+        ctx.fillStyle = `rgba(148,163,184,${a * 0.4})`;
+      }
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+  }
+
+  for (let i = 0; i < 140; i++) {
+    const p = new Particle();
+    p.life = Math.floor(Math.random() * p.maxLife);
+    particles.push(p);
+  }
+
+  function drawConnections() {
+    const hot = particles.filter(p => p.type === 'hot');
+    for (let i = 0; i < hot.length; i++) {
+      for (let j = i + 1; j < hot.length; j++) {
+        const dx = hot[i].x - hot[j].x, dy = hot[i].y - hot[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 90) {
+          const a = (1 - d/90) * 0.1;
+          ctx.strokeStyle = `rgba(255,80,0,${a})`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(hot[i].x, hot[i].y);
+          ctx.lineTo(hot[j].x, hot[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    drawConnections();
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// ── LIGHTNING BOLT CANVAS (NEW) ──
+(function() {
+  const canvas = document.getElementById('bolt-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function randomBolt(x1,y1,x2,y2,depth){
+    if (depth===0) {
+      ctx.lineTo(x2,y2);
+      return;
+    }
+    const mx=(x1+x2)/2+(Math.random()-0.5)*(Math.abs(x2-x1)+Math.abs(y2-y1))*0.3;
+    const my=(y1+y2)/2+(Math.random()-0.5)*(Math.abs(x2-x1)+Math.abs(y2-y1))*0.3;
+    randomBolt(x1,y1,mx,my,depth-1);
+    randomBolt(mx,my,x2,y2,depth-1);
+  }
+
+  function drawLightning(x1,y1,x2,y2,alpha){
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = `rgba(255,200,100,0.9)`;
+    ctx.lineWidth = 1;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = 'rgba(255,100,0,1)';
+    ctx.beginPath();
+    ctx.moveTo(x1,y1);
+    randomBolt(x1,y1,x2,y2,4);
+    ctx.stroke();
+    ctx.strokeStyle = `rgba(255,255,200,0.6)`;
+    ctx.lineWidth = 0.5;
+    ctx.beginPath();
+    ctx.moveTo(x1,y1);
+    randomBolt(x1,y1,x2,y2,3);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  let boltTimer = 0;
+  let activeBolts = [];
+
+  function spawnBolt(){
+    const edges = [
+      [Math.random()*W, 0, Math.random()*W*0.3, Math.random()*H*0.5],
+      [Math.random()*W, 0, W-Math.random()*W*0.3, Math.random()*H*0.5],
+      [0, Math.random()*H, Math.random()*W*0.5, Math.random()*H],
+      [W, Math.random()*H, W-Math.random()*W*0.5, Math.random()*H],
+    ];
+    const e = edges[Math.floor(Math.random()*edges.length)];
+    return {x1:e[0],y1:e[1],x2:e[2],y2:e[3],life:0,maxLife:8+Math.floor(Math.random()*6)};
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    boltTimer++;
+    if (boltTimer % 180 === 0 && Math.random() > 0.4) {
+      activeBolts.push(spawnBolt());
+      if (Math.random()>0.5) activeBolts.push(spawnBolt());
+    }
+    activeBolts = activeBolts.filter(b => b.life < b.maxLife);
+    activeBolts.forEach(b => {
+      const alpha = Math.sin((b.life/b.maxLife)*Math.PI) * 0.6;
+      drawLightning(b.x1,b.y1,b.x2,b.y2,alpha);
+      b.life++;
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// ── TYPEWRITER SUBTITLE ──
+(function(){
+  const lines = [
+    'Your AI agent, always on.',
+    'Autonomous. Relentless. Fast.',
+    'GitHub · Jira · Slack · CI/CD',
+    'Zero downtime. Full control.',
+  ];
+  let li = 0, ci = 0, deleting = false;
+  const el = document.getElementById('tw-text');
+  function tick(){
+    const line = lines[li];
+    if (!deleting){
+      el.textContent = line.slice(0, ++ci);
+      if (ci === line.length){ deleting = true; setTimeout(tick, 2200); return; }
+    } else {
+      el.textContent = line.slice(0, --ci);
+      if (ci === 0){ deleting = false; li = (li+1)%lines.length; setTimeout(tick, 400); return; }
+    }
+    setTimeout(tick, deleting ? 18 : 58);
+  }
+  setTimeout(tick, 1000);
+})();
+
+// ── LIVE METRIC COUNTER ──
+(function(){
+  let agents = 847;
+  let tasks = 12400;
+  let uptimeTick = 0;
+  setInterval(() => {
+    agents += Math.floor((Math.random()-0.3)*3);
+    tasks += Math.floor((Math.random()-0.2)*15);
+    document.getElementById('m-agents').textContent = agents.toLocaleString();
+    const t = tasks >= 1000 ? (tasks/1000).toFixed(1)+'k' : tasks;
+    document.getElementById('m-tasks').textContent = t;
+    // occasional uptime flicker to 100%
+    uptimeTick++;
+    const uptimeEl = document.getElementById('m-uptime');
+    if (uptimeTick % 7 === 0 && Math.random() > 0.6) {
+      uptimeEl.textContent = '100%';
+      uptimeEl.style.color = 'var(--green)';
+      setTimeout(() => { uptimeEl.textContent = '99.9%'; uptimeEl.style.color = ''; }, 400);
+    }
+  }, 2200);
+})();
+
+// ── MODE SWITCH ──
+function setMode(m) {
+  mode = m;
+  document.getElementById('tab-login').classList.toggle('active', m === 'login');
+  document.getElementById('tab-register').classList.toggle('active', m === 'register');
+  document.getElementById('field-name').style.display = m === 'register' ? 'block' : 'none';
+  document.getElementById('field-confirm').style.display = m === 'register' ? 'block' : 'none';
+  const forgotRow = document.getElementById('forgot-row');
+  forgotRow.style.display = m === 'login' ? 'flex' : 'none';
+  document.getElementById('submit-label').textContent = m === 'login' ? 'Sign In →' : 'Create Account →';
+  document.getElementById('google-label').textContent = m === 'login' ? 'Sign in with Google' : 'Register with Google';
+  document.getElementById('card-footer').innerHTML = m === 'login'
+    ? 'No account? <a href="#" onclick="setMode(\'register\');return false">Register here</a>'
+    : 'Already have an account? <a href="#" onclick="setMode(\'login\');return false">Sign in</a>';
+  // demo hint: only show in login
+  document.getElementById('demo-hint').style.display = m === 'login' ? 'flex' : 'none';
+  // fix password autocomplete for context
+  document.getElementById('inp-pass').setAttribute('autocomplete', m === 'login' ? 'current-password' : 'new-password');
+  // show/hide strength bar and terms
+  const ps = document.getElementById('pass-strength');
+  const terms = document.getElementById('terms-line');
+  if (m === 'register') {
+    ps.classList.add('visible');
+    terms.classList.add('visible');
+    checkStrength(document.getElementById('inp-pass').value);
+  } else {
+    ps.classList.remove('visible');
+    terms.classList.remove('visible');
+  }
+  clearAllErrors();
+  clearMsg();
+}
+
+function togglePass() {
+  showPass = !showPass;
+  const inp = document.getElementById('inp-pass');
+  inp.type = showPass ? 'text' : 'password';
+  document.getElementById('eye-icon').innerHTML = showPass
+    ? '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>'
+    : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>';
+  document.getElementById('eye-btn').setAttribute('aria-label', showPass ? 'Hide password' : 'Show password');
+}
+
+// #4 – auto-trim email whitespace on blur
+function trimEmail() {
+  const el = document.getElementById('inp-email');
+  el.value = el.value.trim();
+}
+
+function showMsg(text, type) {
+  document.getElementById('msg-area').innerHTML = `<div class="msg ${type}">${text}</div>`;
+}
+function clearMsg() { document.getElementById('msg-area').innerHTML = ''; }
+
+function setFieldError(fieldId, wrapId, errId, msg) {
+  const wrap = document.getElementById(wrapId);
+  const err = document.getElementById(errId);
+  if (msg) {
+    wrap && wrap.classList.add('has-error');
+    if (err) { err.textContent = msg; err.classList.add('show'); }
+  } else {
+    wrap && wrap.classList.remove('has-error');
+    if (err) { err.textContent = ''; err.classList.remove('show'); }
+  }
+}
+
+function clearAllErrors() {
+  ['wrap-name','wrap-email','wrap-pass','wrap-confirm'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('has-error');
+  });
+  ['err-name','err-email','err-pass','err-confirm'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent=''; el.classList.remove('show'); }
+  });
+}
+
+function handleForgot(e) {
+  e.preventDefault();
+  const email = document.getElementById('inp-email').value.trim();
+  if (!email) { setFieldError(null,'wrap-email','err-email','Enter your email first.'); return; }
+  setFieldError(null,'wrap-email','err-email','');
+  const link = document.getElementById('forgot-link');
+  link.textContent = '✓ Reset link sent!';
+  link.style.color = 'var(--green)';
+  setTimeout(() => { link.textContent = 'Forgot password?'; link.style.color = ''; }, 5000);
+}
+
+function setLoading(on) {
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = on;
+  document.getElementById('submit-label').innerHTML = on
+    ? `<span class="spinner"></span> ${mode==='login'?'Authenticating…':'Creating account…'}`
+    : (mode==='login' ? 'Sign In →' : 'Create Account →');
+}
+
+function showSuccess(name) {
+  // After the 3s countdown, transition to main site
+  setTimeout(function() {
+    if (window.sonicShowMainSite) {
+      window.sonicShowMainSite({ name: name, email: document.getElementById('inp-email').value || 'demo@sonicagent.ai', avatar: name.split(' ').map(function(n){return n[0];}).join('').toUpperCase() });
+    }
+  }, 4200);
+  document.getElementById('success-sub-text').textContent = `Welcome back, ${name}`;
+  const ov = document.getElementById('success-overlay');
+  ov.style.display = 'flex';
+  const poly = ov.querySelector('polyline');
+  poly.style.animation = 'none'; void poly.offsetWidth; poly.style.animation = '';
+  const fill = document.getElementById('countdown-fill');
+  fill.style.animation = 'none'; void fill.offsetWidth; fill.style.animation = '';
+}
+
+function showRegisterSuccess(name) {
+  document.getElementById('reg-success-name').textContent = `Welcome aboard, ${name}`;
+  const ov = document.getElementById('reg-success-overlay');
+  ov.style.display = 'flex';
+}
+
+function goToLogin() {
+  document.getElementById('reg-success-overlay').style.display = 'none';
+  // clear fields
+  ['inp-name','inp-email','inp-pass','inp-confirm'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  setMode('login');
+}
+
+function checkStrength(val) {
+  if (mode !== 'register') return;
+  const segs = [document.getElementById('seg1'),document.getElementById('seg2'),document.getElementById('seg3'),document.getElementById('seg4')];
+  const lbl = document.getElementById('strength-label');
+  let score = 0;
+  if (val.length >= 6) score++;
+  if (val.length >= 10) score++;
+  if (/[A-Z]/.test(val) && /[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+  const levels = [
+    {cls:'active-weak',color:'var(--red)',label:'WEAK'},
+    {cls:'active-fair',color:'var(--orange-amber)',label:'FAIR'},
+    {cls:'active-good',color:'#facc15',label:'GOOD'},
+    {cls:'active-strong',color:'var(--green)',label:'STRONG'},
+  ];
+  segs.forEach((s,i) => {
+    s.className = 'strength-seg';
+    if (val.length > 0 && i < score) s.classList.add(levels[score-1].cls);
+  });
+  if (val.length === 0) { lbl.textContent = '—'; lbl.style.color = 'var(--dim)'; }
+  else { lbl.textContent = levels[Math.max(0,score-1)].label; lbl.style.color = levels[Math.max(0,score-1)].color; }
+}
+
+function autofillDemo() {
+  if (mode !== 'login') setMode('login');
+  document.getElementById('inp-email').value = 'demo@sonicagent.ai';
+  document.getElementById('inp-pass').value = 'demo123';
+  ['inp-email','inp-pass'].forEach(id => {
+    const el = document.getElementById(id);
+    el.style.borderColor = 'rgba(255,100,0,0.6)';
+    el.style.boxShadow = '0 0 0 3px rgba(255,60,0,0.12)';
+    setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 600);
+  });
+}
+
+function handleGoogle() {
+  document.getElementById('google-icon').outerHTML = '<span class="spinner" id="google-icon"></span>';
+  document.getElementById('google-label').textContent = 'Connecting to Google…';
+  document.getElementById('btn-google').disabled = true;
+  clearMsg();
+  setTimeout(() => showSuccess('Google User'), 1800);
+}
+
+function handleSubmit() {
+  clearAllErrors();
+  clearMsg();
+  const email = document.getElementById('inp-email').value.trim();
+  const pass = document.getElementById('inp-pass').value;
+
+  if (mode === 'login') {
+    let valid = true;
+    if (!email) { setFieldError(null,'wrap-email','err-email','Email is required.'); valid=false; }
+    if (!pass) { setFieldError(null,'wrap-pass','err-pass','Password is required.'); valid=false; }
+    if (!valid) return;
+    setLoading(true);
+    setTimeout(() => {
+      const found = accounts.find(a => a.email===email && a.password===pass);
+      setLoading(false);
+      if (found) {
+        showSuccess(found.name);
+      } else {
+        setFieldError(null,'wrap-email','err-email','Invalid email or password.');
+        setFieldError(null,'wrap-pass','err-pass','');
+        const card = document.getElementById('main-card');
+        card.style.animation = 'shake 0.35s ease';
+        setTimeout(() => card.style.animation = '', 400);
+      }
+    }, 900);
+  } else {
+    const name = document.getElementById('inp-name').value.trim();
+    const confirm = document.getElementById('inp-confirm').value;
+    let valid = true;
+    if (!name) { setFieldError(null,'wrap-name','err-name','Name is required.'); valid=false; }
+    if (!email) { setFieldError(null,'wrap-email','err-email','Email is required.'); valid=false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setFieldError(null,'wrap-email','err-email','Enter a valid email address.'); valid=false; }
+    else if (accounts.find(a=>a.email===email)) { setFieldError(null,'wrap-email','err-email','This email is already registered.'); valid=false; }
+    if (!pass) { setFieldError(null,'wrap-pass','err-pass','Password is required.'); valid=false; }
+    else if (pass.length<6) { setFieldError(null,'wrap-pass','err-pass','At least 6 characters required.'); valid=false; }
+    if (!confirm) { setFieldError(null,'wrap-confirm','err-confirm','Please confirm your password.'); valid=false; }
+    else if (pass!==confirm) { setFieldError(null,'wrap-confirm','err-confirm','Passwords do not match.'); valid=false; }
+    if (!valid) return;
+    setLoading(true);
+    setTimeout(() => {
+      accounts.push({email, password:pass, name});
+      setLoading(false);
+      showRegisterSuccess(name);
+    }, 900);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  // Only trigger login/register submit if the login overlay is actually
+  // visible AND the Enter key was pressed while focused on a login field.
+  // (Without this guard, pressing Enter in the chat box, GitHub clone
+  // field, or email-capture field would incorrectly fire handleSubmit().)
+  const overlay = document.getElementById('login-overlay');
+  const isOverlayVisible = overlay && overlay.style.display !== 'none';
+  const active = document.activeElement;
+  const loginFieldIds = ['inp-name', 'inp-email', 'inp-pass', 'inp-confirm'];
+  if (isOverlayVisible && active && loginFieldIds.includes(active.id)) {
+    handleSubmit();
+  }
+});
+
+</script>
+<script>
+  /* ── SESSION PERSISTENCE ── */
+  const SESSION_KEY = 'sonic_session';
+
+  function saveSession(user) {
+    try { localStorage.setItem(SESSION_KEY, JSON.stringify(user)); } catch(_) {}
+  }
+  function loadSession() {
+    try { const s = localStorage.getItem(SESSION_KEY); return s ? JSON.parse(s) : null; } catch(_) { return null; }
+  }
+  function clearSession() {
+    try { localStorage.removeItem(SESSION_KEY); } catch(_) {}
+  }
+
+  function renderSonicNav(user) {
+    const wrap = document.getElementById('nav-actions');
+    const initials = user.avatar || (user.name || '').split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2);
+    const firstName = (user.name || '').trim().split(' ')[0] || user.email;
+    wrap.innerHTML =
+      '<span class="nav-user">' +
+        '<span class="nav-avatar">' + initials + '</span>' +
+        'Hi, ' + firstName +
+      '</span>' +
+      '<button class="btn btn-outline" id="logout-btn">Log out</button>';
+
+    document.getElementById('logout-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      clearSession();
+      document.getElementById('main-site').classList.remove('visible');
+      document.getElementById('login-overlay').style.display = '';
+      window.__sonicUser = null;
+      // Re-render login form
+      // renderLoginApp(); — v3.7 login already in DOM
+    });
+  }
+
+  function showMainSite(userData) {
+    saveSession(userData);
+    document.getElementById('login-overlay').style.display = 'none';
+    const site = document.getElementById('main-site');
+    site.classList.add('visible');
+    window.__sonicUser = userData;
+    renderSonicNav(userData);
+    document.getElementById('github-fab').classList.add('visible');
+    showSonicToast('Welcome back, ' + (userData.name || 'there') + '! 👋');
+    // Small delay so layout is computed before observing
+    setTimeout(function() {
+      initReveal();
+      initScrollSpy();
+      animateStats();
+    }, 100);
+    document.getElementById('offline-banner').classList.add('show');
+  }
+
+  // Try restoring previous session on load
+  window.addEventListener('DOMContentLoaded', function() {
+    // Point bridge to the full showMainSite once all functions are loaded
+    window.sonicShowMainSite = showMainSite;
+    const saved = loadSession();
+    if (saved) {
+      showMainSite(saved);
+    }
+  });
+
+  let toastTimer;
+  function showSonicToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 4500);
+  }
+
+  function initReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    // Use a generous rootMargin so elements below the fold still get observed
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 200px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Fallback: force all reveals visible after 2s in case IntersectionObserver
+    // doesn't fire (e.g. elements off-screen when site first becomes visible)
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 2000);
+  }
+
+  /* ── SCROLL SPY ── */
+  function initScrollSpy() {
+    const sections = ['features','how-it-works','pricing','roadmap','testimonials','faq'];
+    const links = document.querySelectorAll('.nav-links a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-60px 0px -30% 0px' });
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  }
+
+  /* ── BACK TO TOP ── */
+  window.addEventListener('scroll', function() {
+    const btn = document.getElementById('back-to-top');
+    if (btn) btn.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+
+  /* ── ANIMATED STAT COUNTERS ── */
+  function animateStats() {
+    // Animate each stat-num by its final value
+    document.querySelectorAll('.stat-num').forEach(function(el) {
+      const text = el.textContent.trim();
+      // Match patterns like "10×", "50+", "99.9%", "24/7"
+      const numMatch = text.match(/^([\d.]+)([^\d]*)$/);
+      if (!numMatch) return; // skip "24/7" style
+      const target = parseFloat(numMatch[1]);
+      const suffix = numMatch[2] || '';
+      el.textContent = '0' + suffix;
+      let start = 0;
+      const duration = 1200;
+      const startTime = performance.now();
+      function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = eased * target;
+        el.textContent = (Number.isInteger(target) ? Math.round(current) : current.toFixed(1)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = text; // ensure exact final value
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  /* ── GITHUB CLONE PANEL ── */
+  function openGithubPanel() {
+    const panel = document.getElementById('github-panel');
+    panel.style.display = 'block';
+    requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add('open')));
+    document.getElementById('github-fab').classList.remove('visible');
+  }
+
+  function closeGithubPanel() {
+    const panel = document.getElementById('github-panel');
+    panel.classList.remove('open');
+    setTimeout(() => {
+      panel.style.display = 'none';
+      document.getElementById('github-fab').classList.add('visible');
+    }, 350);
+  }
+
+  function ghLog(msg, type) {
+    const log = document.getElementById('gh-log');
+    const ts = new Date().toLocaleTimeString('en-GB', { hour12: false });
+    const line = document.createElement('div');
+    line.className = 'gh-log-line';
+    line.innerHTML = '<span class="ts">' + ts + '</span><span class="msg-' + (type||'info') + '">' + msg + '</span>';
+    log.appendChild(line);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function setProgress(pct) {
+    document.getElementById('gh-progress-bar').style.width = pct + '%';
+  }
+
+  function parseGithubUrl(url) {
+    url = url.trim().replace(/\.git$/, '');
+    const m = url.match(/github\.com[:/]([^/]+)\/([^/]+)/);
+    if (!m) return null;
+    return { owner: m[1], repo: m[2] };
+  }
+
+  let _lastCloneCmd = '';
+  function startClone() {
+    const url    = document.getElementById('gh-url').value.trim();
+    const branch = document.getElementById('gh-branch').value.trim() || 'main';
+    const depth  = document.getElementById('gh-depth').value;
+    const token  = document.getElementById('gh-token').value.trim();
+    const btn    = document.getElementById('gh-clone-btn');
+    const resultCard = document.getElementById('gh-result-card');
+
+    if (!url) { ghLog('✗ Please enter a GitHub repository URL', 'err'); return; }
+    const parsed = parseGithubUrl(url);
+    if (!parsed) { ghLog('✗ Invalid GitHub URL — expected https://github.com/owner/repo', 'err'); return; }
+    const { owner, repo } = parsed;
+
+    document.getElementById('gh-log').innerHTML = '';
+    resultCard.classList.remove('show');
+    setProgress(0);
+    btn.disabled = true;
+    btn.innerHTML = '<span style="display:inline-block;width:12px;height:12px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite"></span> Cloning…';
+
+    const depthFlag = depth === 'full' ? '' : ' --depth ' + depth;
+    const branchFlag = ' --branch ' + branch;
+    const apiUrl = 'https://api.github.com/repos/' + owner + '/' + repo;
+
+    ghLog('Resolving ' + owner + '/' + repo + '…', 'info');
+    setProgress(10);
+
+    const headers = { 'Accept': 'application/vnd.github.v3+json' };
+    if (token) headers['Authorization'] = 'token ' + token;
+
+    fetch(apiUrl, { headers })
+      .then(function(r) {
+        if (r.status === 404) throw new Error('Repository not found (or private — add a token)');
+        if (r.status === 403) throw new Error('GitHub API rate limit — add a token to raise limits');
+        if (!r.ok) throw new Error('GitHub API error: ' + r.status);
+        return r.json();
+      })
+      .then(function(data) {
+        setProgress(35);
+        ghLog('✓ Found: ' + data.full_name, 'ok');
+        ghLog('  ' + (data.description || '(no description)'), 'dim');
+        ghLog('  Branch: ' + data.default_branch + '  ★ ' + data.stargazers_count, 'dim');
+        setProgress(55);
+
+        const cloneBase = token ? 'https://<token>@github.com/' : 'https://github.com/';
+        const cmd = 'git clone' + depthFlag + branchFlag + ' ' + cloneBase + data.full_name + '.git';
+        _lastCloneCmd = 'git clone' + depthFlag + ' --branch ' + branch + ' https://github.com/' + data.full_name + '.git';
+
+        setTimeout(() => { ghLog('Running: ' + cmd, 'info'); setProgress(70); }, 400);
+        setTimeout(() => { ghLog('Counting objects…', 'dim'); setProgress(82); }, 900);
+        setTimeout(() => { ghLog('Resolving deltas…', 'dim'); setProgress(93); }, 1400);
+        setTimeout(() => {
+          setProgress(100);
+          ghLog('✓ Clone complete → ./' + data.name + '/', 'ok');
+
+          const sizeKb = data.size ? (data.size > 1024 ? (data.size/1024).toFixed(1) + ' MB' : data.size + ' KB') : '—';
+          document.getElementById('gh-result-name').textContent = '✓ ' + data.full_name;
+          document.getElementById('gh-result-meta').innerHTML =
+            'Branch: <b style="color:#aaa">' + branch + '</b> &nbsp;·&nbsp; ' +
+            'Depth: <b style="color:#aaa">' + (depth === 'full' ? 'full' : depth) + '</b> &nbsp;·&nbsp; ' +
+            'Size: <b style="color:#aaa">' + sizeKb + '</b> &nbsp;·&nbsp; ' +
+            'Lang: <b style="color:#aaa">' + (data.language || '—') + '</b>';
+          document.getElementById('gh-cmd-text').textContent = _lastCloneCmd;
+          document.getElementById('gh-copy-btn').textContent = 'Copy';
+          document.getElementById('gh-copy-btn').classList.remove('copied');
+          resultCard.classList.add('show');
+
+          btn.disabled = false;
+          btn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Clone';
+          showSonicToast('✓ Cloned ' + data.full_name + '!');
+        }, 1900);
+      })
+      .catch(function(err) {
+        setProgress(0);
+        ghLog('✗ ' + err.message, 'err');
+        btn.disabled = false;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Clone';
+      });
+  }
+
+  function copyCloneCmd() {
+    if (!_lastCloneCmd) return;
+    navigator.clipboard.writeText(_lastCloneCmd).then(() => {
+      const btn = document.getElementById('gh-copy-btn');
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2500);
+    }).catch(() => {
+      showSonicToast('Could not copy — try manually.');
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const ghUrl = document.getElementById('gh-url');
+    if (ghUrl) ghUrl.addEventListener('keydown', function(e) { if (e.key === 'Enter') startClone(); });
+  });
+
+  /* ── HAMBURGER MENU ── */
+  var hamburgerBtn = document.getElementById('hamburger-btn');
+  var mobileNav = document.getElementById('mobile-nav');
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', function() {
+      hamburgerBtn.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+    });
+  }
+  function closeMobileNav() {
+    hamburgerBtn && hamburgerBtn.classList.remove('open');
+    mobileNav && mobileNav.classList.remove('open');
+  }
+
+  /* ── FAQ ACCORDION ── */
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  }
+
+  /* ── RENDER LOGIN APP ── */
+  function renderLoginApp() {
+    // v3.7 login is pre-rendered HTML in #login-overlay — nothing to do
+  }
+
+  /* ── EMAIL CAPTURE ── */
+  function submitEmailCapture() {
+    const input = document.getElementById('capture-email');
+    const email = input ? input.value.trim() : '';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (input) { input.style.borderColor = 'rgba(239,68,68,0.6)'; setTimeout(() => { input.style.borderColor = ''; }, 1200); }
+      return;
+    }
+    document.getElementById('email-form').style.display = 'none';
+    document.getElementById('email-form-success').classList.add('show');
+  }
+
+  /* ── CHAT WIDGET ── */
+  var chatOpen = false;
+  var chatLoading = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const panel = document.getElementById('chat-panel');
+    if (chatOpen) {
+      panel.classList.add('open');
+      setTimeout(() => { document.getElementById('chat-input').focus(); }, 100);
+    } else {
+      panel.classList.remove('open');
+    }
+  }
+
+  function sendSuggestion(btn) {
+    const text = btn.textContent;
+    document.getElementById('chat-suggestions').style.display = 'none';
+    addChatMsg(text, 'user');
+    fetchAIReply(text);
+  }
+
+  function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text || chatLoading) return;
+    input.value = '';
+    document.getElementById('chat-suggestions').style.display = 'none';
+    addChatMsg(text, 'user');
+    fetchAIReply(text);
+  }
+
+  function addChatMsg(text, role) {
+    const container = document.getElementById('chat-messages');
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + role;
+    const avatar = document.createElement('div');
+    avatar.className = 'chat-msg-avatar';
+    avatar.textContent = role === 'agent' ? '⚡' : (window.__sonicUser ? (window.__sonicUser.avatar || 'U') : 'U');
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.textContent = text;
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return div;
+  }
+
+  function addTypingIndicator() {
+    const container = document.getElementById('chat-messages');
+    const div = document.createElement('div');
+    div.className = 'chat-msg agent';
+    div.id = 'typing-indicator';
+    div.innerHTML = '<div class="chat-msg-avatar">⚡</div><div class="chat-bubble"><div class="chat-typing"><span></span><span></span><span></span></div></div>';
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const el = document.getElementById('typing-indicator');
+    if (el) el.remove();
+  }
+
+  async function fetchAIReply(userMsg) {
+    chatLoading = true;
+    addTypingIndicator();
+    try {
+      const systemPrompt = `You are Sonic Agent, an AI-powered autonomous agent for engineering workflows. You help developers automate CI/CD, GitHub, Jira, Slack, and more. Be concise, helpful, and enthusiastic. Keep replies under 3 sentences. If asked about pricing: Starter is free (1 agent, 500 actions/mo), Pro is $29/mo (10 agents, 50k actions), Enterprise is custom. Key integrations: GitHub, Jira, Slack, Linear, Notion, and 50+ more. Setup takes under 5 minutes.`;
+      const resp = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: systemPrompt,
+          messages: [{ role: 'user', content: userMsg }]
+        })
+      });
+      const data = await resp.json();
+      removeTypingIndicator();
+      const reply = data.content && data.content[0] && data.content[0].text
+        ? data.content[0].text
+        : 'Something went wrong. Try again!';
+      addChatMsg(reply, 'agent');
+    } catch (err) {
+      removeTypingIndicator();
+      addChatMsg('I\'m having trouble connecting right now. Try the demo login below!', 'agent');
+    }
+    chatLoading = false;
+  }
+</script>
+
+</body>
+</html>
